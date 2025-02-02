@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://cwlc3icftm62l"]
+[gd_scene load_steps=5 format=3 uid="uid://cwlc3icftm62l"]
+
+[ext_resource type="Texture2D" uid="uid://b2f25ivy0w8gk" path="res://textures/layout.png" id="1_5gg8b"]
+[ext_resource type="Texture2D" uid="uid://bia07ntdcewqq" path="res://textures/block.res" id="2_t63cs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkyps"]
+resource_name = "block"
+texture = ExtResource("2_t63cs")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tejjt"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_fkyps")
 
 [node name="Node2D" type="Node2D"]
+
+[node name="grid" type="TileMapLayer" parent="."]
+z_index = 1
+position = Vector2(-40, -80)
+tile_map_data = PackedByteArray(0, 0, 3, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_tejjt")
+
+[node name="Layout" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(36.5, 0)
+texture = ExtResource("1_5gg8b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.5, 4.5)
