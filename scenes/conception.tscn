@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwlc3icftm62l"]
+[gd_scene load_steps=9 format=3 uid="uid://cwlc3icftm62l"]
 
 [ext_resource type="Texture2D" uid="uid://b2f25ivy0w8gk" path="res://textures/layout.png" id="1_5gg8b"]
+[ext_resource type="Script" path="res://scripts/Tetris.cs" id="1_gl7w8"]
 [ext_resource type="Script" path="res://scripts/UpdateScore.cs" id="2_3g7cw"]
 [ext_resource type="Texture2D" uid="uid://bia07ntdcewqq" path="res://textures/block.res" id="2_t63cs"]
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="3_mtcrl"]
@@ -21,6 +22,7 @@ tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_fkyps")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_gl7w8")
 
 [node name="score" type="MeshInstance2D" parent="."]
 modulate = Color(0.14902, 0.760784, 0.0588235, 1)
@@ -31,6 +33,7 @@ mesh = SubResource("TextMesh_c6frk")
 script = ExtResource("2_3g7cw")
 
 [node name="grid" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(-40, -80)
 tile_map_data = PackedByteArray(0, 0, 3, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0)
