@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwlc3icftm62l"]
+[gd_scene load_steps=7 format=3 uid="uid://cwlc3icftm62l"]
 
 [ext_resource type="Texture2D" uid="uid://b2f25ivy0w8gk" path="res://textures/layout.png" id="1_5gg8b"]
 [ext_resource type="Texture2D" uid="uid://bia07ntdcewqq" path="res://textures/block.res" id="2_t63cs"]
+[ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="3_mtcrl"]
+
+[sub_resource type="TextMesh" id="TextMesh_c6frk"]
+text = "000000"
+font = ExtResource("3_mtcrl")
+horizontal_alignment = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fkyps"]
 resource_name = "block"
@@ -15,13 +21,20 @@ sources/0 = SubResource("TileSetAtlasSource_fkyps")
 
 [node name="Game" type="Node2D"]
 
+[node name="score" type="MeshInstance2D" parent="."]
+modulate = Color(0.14902, 0.760784, 0.0588235, 1)
+z_index = 1
+position = Vector2(113.069, -48.5)
+scale = Vector2(53.4483, -58.3333)
+mesh = SubResource("TextMesh_c6frk")
+
 [node name="grid" type="TileMapLayer" parent="."]
 z_index = 1
 position = Vector2(-40, -80)
 tile_map_data = PackedByteArray(0, 0, 3, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_tejjt")
 
-[node name="Layout" type="Sprite2D" parent="."]
+[node name="layout" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(36.5, 0)
 texture = ExtResource("1_5gg8b")
