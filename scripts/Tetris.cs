@@ -1,4 +1,5 @@
 using Godot;
+using System.Threading.Tasks;
 
 
 public enum Block
@@ -22,34 +23,34 @@ public class GridData
 
 public partial class Tetris : Node
 {
-
     GridData _gridData;
     TileMapLayer _tileGrid;
 
-    public override void _Ready()
+    public override async void _Ready()
     {
-        _gridData = GameData.Instance.GridData;
-
-        _gridData.data[0,0] = Block.Red;
-        _gridData.data[1,1] = Block.Green;
-        _gridData.data[2,2] = Block.Blue;
-        _gridData.data[3,3] = Block.Yellow;
-        _gridData.data[4,4] = Block.Cyan;
-        _gridData.data[5,5] = Block.Purple;
-        _gridData.data[6,6] = Block.Orange;
-        
+        _gridData = GameData.Instance.GridData;      
         _tileGrid = GetNode("%grid") as TileMapLayer;
 
         _UpdateTiles();
+        await Start();
     }
 
-    public void Start()
+    /// <summary>
+    /// Start game loop
+    /// </summary>
+    public async Task Start()
     {
-
+        while (GameData.Instance.State != GameState.GameOver)
+            await _Update();
     }
 
-    private void _Update()
+
+    private async Task _Update()
     {
+        await Task.Delay(GameData.Instance.UpdateDelay);
+
+        _gridData.data[0,0] = _gridData.data[0,0] == Block.Green ? Block.Red : Block.Green;
+        
         _UpdateTiles();
     }
 
