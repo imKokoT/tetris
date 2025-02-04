@@ -3,8 +3,8 @@ using Godot;
 
 public enum Block
 {
-    None = -1,
-    Red = 1,
+    None,
+    Red,
     Green,
     Blue,
     Yellow,
@@ -57,25 +57,9 @@ public partial class Tetris : Node
     {
         for (int x = 0; x < GridData.xMax; x++)
             for (int y = 0; y < GridData.yMax; y++)
-            {
                 if (_gridData.data[x, y] != Block.None)
-                {
-                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, 0);
-                    _tileGrid.GetCellTileData(new Vector2I(x, y)).Modulate =
-                        _gridData.data[x, y] switch
-                        {
-                            Block.Red => new Color(1, 0, 0),
-                            Block.Green => new Color(0, 1, 0),
-                            Block.Blue => new Color(0, 0, 1),
-                            Block.Yellow => new Color(1, 1, 0),
-                            Block.Orange => new Color(1, 0.5f, 0),
-                            Block.Cyan => new Color(0, 1, 1),
-                            Block.Purple => new Color(0.5f, 0, 0.5f),
-                            _ => throw new System.NotImplementedException()
-                        };
-                }
-                else 
+                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)_gridData.data[x, y]);
+                else
                     _tileGrid.SetCell(new Vector2I(x, y), -1);
-            }
     }
 }
