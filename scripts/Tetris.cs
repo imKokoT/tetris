@@ -3,8 +3,8 @@ using Godot;
 
 public enum Block
 {
-    None,
-    Red,
+    None = -1,
+    Red = 1,
     Green,
     Blue,
     Yellow,

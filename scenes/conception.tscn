@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwlc3icftm62l"]
+[gd_scene load_steps=9 format=4 uid="uid://cwlc3icftm62l"]
 
 [ext_resource type="Texture2D" uid="uid://b2f25ivy0w8gk" path="res://textures/layout.png" id="1_5gg8b"]
 [ext_resource type="Script" path="res://scripts/Tetris.cs" id="1_gl7w8"]
@@ -15,7 +15,22 @@ horizontal_alignment = 2
 resource_name = "block"
 texture = ExtResource("2_t63cs")
 texture_region_size = Vector2i(8, 8)
+0:0/next_alternative_id = 8
 0:0/0 = 0
+0:0/1 = 1
+0:0/1/modulate = Color(1, 0, 0, 1)
+0:0/2 = 2
+0:0/2/modulate = Color(0, 1, 0, 1)
+0:0/3 = 3
+0:0/3/modulate = Color(0, 0, 1, 1)
+0:0/4 = 4
+0:0/4/modulate = Color(1, 1, 0, 1)
+0:0/5 = 5
+0:0/5/modulate = Color(1, 0.533333, 0, 1)
+0:0/6 = 6
+0:0/6/modulate = Color(0, 1, 1, 1)
+0:0/7 = 7
+0:0/7/modulate = Color(0.533333, 0, 0.533333, 1)
 
 [sub_resource type="TileSet" id="TileSet_tejjt"]
 tile_size = Vector2i(8, 8)
@@ -36,7 +51,7 @@ script = ExtResource("2_3g7cw")
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(-40, -80)
-tile_map_data = PackedByteArray(0, 0, 3, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAADABMAAAAAAAAAAAAEABIAAAAAAAAAAAAEABMAAAAAAAAAAAAFABMAAAAAAAAAAAABAA4AAAAAAAAAAQABAA8AAAAAAAAAAQACAA4AAAAAAAAAAgACAA8AAAAAAAAAAgADAA4AAAAAAAAAAwADAA8AAAAAAAAAAwAEAA4AAAAAAAAABAAEAA8AAAAAAAAABAAFAA4AAAAAAAAABQAFAA8AAAAAAAAABQAGAA4AAAAAAAAABgAGAA8AAAAAAAAABgAHAA4AAAAAAAAABwAHAA8AAAAAAAAABwA=")
 tile_set = SubResource("TileSet_tejjt")
 
 [node name="layout" type="Sprite2D" parent="."]
