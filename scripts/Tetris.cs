@@ -28,7 +28,7 @@ public partial class Tetris : Node
 
     public override void _Ready()
     {
-        _gridData = new GridData();
+        _gridData = GameData.Instance.GridData;
 
         _gridData.data[0,0] = Block.Red;
         _gridData.data[1,1] = Block.Green;

@@ -7,6 +7,7 @@ public class GameData
 
     public GameState State { get; set; }
     public int Score { get; set; }
+    public GridData GridData { get; set; } = new GridData();
 }
 
 public enum GameState
