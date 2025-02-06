@@ -34,6 +34,11 @@ namespace Figures
         public byte[,] Blocks => _blocks[_rotation];
 
         public byte[,] GetBlocksByRot(byte rot) => _blocks[rot%4];
+        
+        public Figure(Block color)
+        {
+            this.color = color;
+        }
     }
 
 }
