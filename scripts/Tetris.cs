@@ -12,7 +12,8 @@ public partial class Tetris : Node
     {
         _gridData = GameData.Instance.GridData;      
         _tileGrid = GetNode("%grid") as TileMapLayer;
-        _gridData.SpawnPiece(new I());
+        _gridData.SpawnPiece(new L());
+        _gridData.Piece.pos.Y = 5;
 
         _UpdateTiles();
         await Start();
