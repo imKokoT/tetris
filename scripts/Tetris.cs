@@ -39,9 +39,12 @@ public partial class Tetris : Node
     {
         for (int x = 0; x < GridData.xMax; x++)
             for (int y = 0; y < GridData.yMax; y++)
-                if (_gridData.world[x, y] != Block.None)
-                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)_gridData.GetBlock(x,y));
+            {
+                var current = _gridData.GetBlock(x, y);
+                if (current != Block.None)
+                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)current);
                 else
                     _tileGrid.SetCell(new Vector2I(x, y), -1);
+            }
     }
 }
