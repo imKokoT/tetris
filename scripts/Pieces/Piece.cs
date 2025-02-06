@@ -37,7 +37,7 @@ namespace Pieces
         public Block GetBlockFromPos(Vector2I position)
         {
             var dpos = position - pos;
-            if (dpos.X < 0 || dpos.X > Blocks.GetLength(0) || dpos.Y < 0 || dpos.Y > Blocks.GetLength(1))
+            if (dpos.X < 0 || dpos.X >= Blocks.GetLength(0) || dpos.Y < 0 || dpos.Y >= Blocks.GetLength(1))
                 return Block.None;
             return Blocks[dpos.X, dpos.Y];
         }
