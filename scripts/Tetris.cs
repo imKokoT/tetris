@@ -2,25 +2,6 @@ using Godot;
 using System.Threading.Tasks;
 
 
-public enum Block
-{
-    None,
-    Red,
-    Green,
-    Blue,
-    Yellow,
-    Orange,
-    Cyan,
-    Purple
-}
-
-public class GridData
-{
-    public const int xMax = 10, yMax = 20;
-    public Block[,] data = new Block[xMax,yMax];
-    
-}
-
 public partial class Tetris : Node
 {
     GridData _gridData;
