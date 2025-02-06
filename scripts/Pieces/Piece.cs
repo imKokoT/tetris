@@ -1,4 +1,5 @@
 ﻿using Godot;
+using System;
 
 
 namespace Pieces
@@ -8,6 +9,7 @@ namespace Pieces
         public readonly Block color;
         public Vector2I pos = new(4, 0);
         
+        protected Vector2I _posRotationalModifier= new();
         protected int _rotation = 0;
         /// <summary>
         /// Figure rotation, where:
@@ -19,7 +21,17 @@ namespace Pieces
         public int Rotation 
         { 
             get => _rotation; 
-            set => _rotation = value % 4; 
+            set {
+                _rotation = value % 4;
+                pos += _rotation switch
+                {
+                    0 => new(_posRotationalModifier.X, -_posRotationalModifier.Y),
+                    1 => new(-_posRotationalModifier.X, _posRotationalModifier.Y),
+                    2 => new(_posRotationalModifier.X, -_posRotationalModifier.Y),
+                    3 => new(-_posRotationalModifier.X, _posRotationalModifier.Y),
+                    _ => throw new NotImplementedException()
+                };
+            }
         }
 
         /// <summary>

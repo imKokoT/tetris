@@ -31,7 +31,10 @@ public partial class Tetris : Node
     private async Task _Update()
     {
         await Task.Delay(GameData.Instance.UpdateDelay);
-        
+
+        //_gridData.Piece.pos.Y++;
+        _gridData.Piece.Rotation++;
+
         _UpdateTiles();
     }
 

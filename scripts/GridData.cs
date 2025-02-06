@@ -6,6 +6,7 @@ public class GridData
     public Block[,] world = new Block[xMax, yMax];
 
     private Piece _piece;
+    public Piece Piece => _piece;
 
     public Block GetBlock(int x, int y)
     {
