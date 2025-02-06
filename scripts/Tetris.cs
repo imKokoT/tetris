@@ -1,4 +1,5 @@
 using Godot;
+using Pieces;
 using System.Threading.Tasks;
 
 
@@ -11,6 +12,7 @@ public partial class Tetris : Node
     {
         _gridData = GameData.Instance.GridData;      
         _tileGrid = GetNode("%grid") as TileMapLayer;
+        _gridData.SpawnPiece(new I());
 
         _UpdateTiles();
         await Start();
@@ -29,8 +31,6 @@ public partial class Tetris : Node
     private async Task _Update()
     {
         await Task.Delay(GameData.Instance.UpdateDelay);
-
-        _gridData.data[0,0] = _gridData.data[0,0] == Block.Green ? Block.Red : Block.Green;
         
         _UpdateTiles();
     }
@@ -39,8 +39,8 @@ public partial class Tetris : Node
     {
         for (int x = 0; x < GridData.xMax; x++)
             for (int y = 0; y < GridData.yMax; y++)
-                if (_gridData.data[x, y] != Block.None)
-                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)_gridData.data[x, y]);
+                if (_gridData.world[x, y] != Block.None)
+                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)_gridData.GetBlock(x,y));
                 else
                     _tileGrid.SetCell(new Vector2I(x, y), -1);
     }

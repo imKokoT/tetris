@@ -31,8 +31,24 @@ namespace Pieces
         /// </summary>
         public Block[,] Blocks => _blocks[_rotation];
 
+
         public Block[,] GetBlocksByRot(byte rot) => _blocks[rot%4];
         
+        public Block GetBlockFromPos(Vector2I position)
+        {
+            var dpos = position - pos;
+            if (dpos.X < 0 || dpos.X > Blocks.GetLength(0) || dpos.Y < 0 || dpos.Y > Blocks.GetLength(1))
+                return Block.None;
+            return Blocks[dpos.X, dpos.Y];
+        }
+        public Block GetBlockFromPos(int x, int y) => 
+            GetBlockFromPos(new Vector2I(x, y));
+
+        public bool HasBlockAtPos(Vector2I pos) => 
+            GetBlockFromPos(pos) != Block.None;
+        public bool HasBlockAtPos(int x, int y) =>
+            GetBlockFromPos(x, y) != Block.None;
+
         /// <summary>
         /// In constructor should be created figure blocks!
         /// </summary>
