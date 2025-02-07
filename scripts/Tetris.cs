@@ -40,11 +40,7 @@ public partial class Tetris : Node
             if (piece.CanMoveAt(Vector2I.Down))
                 piece.pos.Y++;
             else
-            {
-                // TODO: place piece to world
-                throw new NotImplementedException();
-            }
-                
+                _gridData.PlacePiece();
         }
         else
         {

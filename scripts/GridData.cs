@@ -1,4 +1,5 @@
 using Pieces;
+using static System.Reflection.Metadata.BlobBuilder;
 
 public class GridData
 {
@@ -33,6 +34,14 @@ public class GridData
     {
         // TODO: conditions to spawn piece or game over
         _piece = piece;
+    }
+
+    public void PlacePiece()
+    {
+        for (int x = 0; x < _piece.Blocks.GetLength(0); x++)
+            for (int y = 0; y < _piece.Blocks.GetLength(1); y++)
+                world[_piece.pos.X+x, _piece.pos.Y + y] = _piece.Blocks[x, y];
+        _piece = null;
     }
 
     #endregion
