@@ -1,5 +1,6 @@
+using Godot;
 using Pieces;
-using static System.Reflection.Metadata.BlobBuilder;
+
 
 public class GridData
 {
@@ -7,7 +8,9 @@ public class GridData
     public Block[,] world = new Block[xMax, yMax];
 
     private Piece _piece;
+    private Piece _nextPiece = Piece.GenerateRandPiece();
     public Piece Piece => _piece;
+    public Piece NextPiece => _nextPiece;
 
 
     # region methods
@@ -30,10 +33,11 @@ public class GridData
     /// <summary>
     /// attempt to spawn piece
     /// </summary>
-    public void SpawnPiece(Piece piece)
+    public void SpawnPiece()
     {
-        // TODO: conditions to spawn piece or game over
-        _piece = piece;
+        // TODO: conditions to spawn piece or game over        
+        _piece = _nextPiece;
+        _nextPiece = Piece.GenerateRandPiece();
     }
 
     public void PlacePiece()

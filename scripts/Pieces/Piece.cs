@@ -56,6 +56,7 @@ namespace Pieces
         public Block GetBlockFromPos(int x, int y) => 
             GetBlockFromPos(new Vector2I(x, y));
 
+        #region Conditions
         public bool HasBlockAtPos(Vector2I pos) => 
             GetBlockFromPos(pos) != Block.None;
         public bool HasBlockAtPos(int x, int y) =>
@@ -77,6 +78,8 @@ namespace Pieces
             throw new NotImplementedException();
         }
 
+        #endregion
+
         /// <summary>
         /// In constructor should be created figure blocks!
         /// </summary>
@@ -84,7 +87,20 @@ namespace Pieces
         public Piece(Block color)
         {
             this.color = color;
-        }           
+        }
+
+        public static Piece GenerateRandPiece()
+        {
+            // TODO: implement other pieces
+            int p = GD.RandRange(1, 7);
+            return p switch
+            {
+                1 => new I(),
+                2 => new L(),
+                3 or 4 or 5 or 6 or 7 => new I(Block.Red),
+                _ => throw new NotImplementedException($"Piece not exists"),
+            };
+        } 
     }
 
 }

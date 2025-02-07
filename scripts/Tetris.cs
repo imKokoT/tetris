@@ -13,7 +13,6 @@ public partial class Tetris : Node
     {
         _gridData = GameData.Instance.GridData;    
         _tileGrid = GetNode("%grid") as TileMapLayer;
-        _gridData.SpawnPiece(new L());
 
         UpdateTiles();
         await Start();
@@ -43,10 +42,7 @@ public partial class Tetris : Node
                 _gridData.PlacePiece();
         }
         else
-        {
-            // TODO: spawn new piece
-            throw new NotImplementedException();
-        }
+            _gridData.SpawnPiece();
 
         UpdateTiles();
     }
