@@ -1,4 +1,4 @@
-﻿
+
 namespace Pieces
 {
     public class L : Piece
@@ -6,7 +6,6 @@ namespace Pieces
         public L(Block color = Block.Orange) : base(color) 
         {
             var c = color;
-            _posRotationalModifier = new(1, 0);
             _blocks = new Block[][,]{
                 new Block[,] {{c, c, c, c },
                               {0, 0, 0, c }},

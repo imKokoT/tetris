@@ -1,4 +1,4 @@
-﻿using Godot;
+using Godot;
 using System;
 
 
@@ -9,7 +9,7 @@ namespace Pieces
         public readonly Block color;
         public Vector2I pos = new(4, 0);
         
-        protected Vector2I _posRotationalModifier= new();
+        protected Vector2I _posRotationalModifier= new(1, 0);
         protected int _rotation = 0;
         /// <summary>
         /// Figure rotation, where:
@@ -68,7 +68,7 @@ namespace Pieces
         public Piece(Block color)
         {
             this.color = color;
-        }
+        }           
     }
 
 }
