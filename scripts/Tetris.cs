@@ -1,5 +1,6 @@
 using Godot;
 using Pieces;
+using System;
 using System.Threading.Tasks;
 
 
@@ -13,7 +14,6 @@ public partial class Tetris : Node
         _gridData = GameData.Instance.GridData;      
         _tileGrid = GetNode("%grid") as TileMapLayer;
         _gridData.SpawnPiece(new L());
-        _gridData.Piece.pos.Y = 5;
 
         _UpdateTiles();
         await Start();
@@ -31,10 +31,26 @@ public partial class Tetris : Node
 
     private async Task _Update()
     {
+        var piece = _gridData.Piece;
         await Task.Delay(GameData.Instance.UpdateDelay);
 
-        //_gridData.Piece.pos.Y++;
-        _gridData.Piece.Rotation++;
+        if (piece != null)
+        {
+
+            if (piece.CanMoveAt(Vector2I.Down))
+                piece.pos.Y++;
+            else
+            {
+                // TODO: place piece to world
+                throw new NotImplementedException();
+            }
+                
+        }
+        else
+        {
+            // TODO: spawn new piece
+            throw new NotImplementedException();
+        }
 
         _UpdateTiles();
     }

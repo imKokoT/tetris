@@ -61,6 +61,22 @@ namespace Pieces
         public bool HasBlockAtPos(int x, int y) =>
             GetBlockFromPos(x, y) != Block.None;
 
+        public bool CanMoveAt(Vector2I pos)
+        {
+            GridData grid = GameData.Instance.GridData;
+
+            for (int x = 0; x < Blocks.GetLength(0); x++)
+                for (int y = 0; y < Blocks.GetLength(1); y++)
+                    if (Blocks[x,y] != Block.None && grid.GetWorldBlock(this.pos.X + pos.X + x, this.pos.Y + pos.Y + y) != Block.None)
+                        return false;
+            return true;
+        }
+
+        public bool CanRotTo(int rotation)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// In constructor should be created figure blocks!
         /// </summary>

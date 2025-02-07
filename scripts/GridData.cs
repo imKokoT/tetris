@@ -1,4 +1,4 @@
-﻿using Pieces;
+using Pieces;
 
 public class GridData
 {
@@ -14,6 +14,13 @@ public class GridData
             return Block.Wall;
         if (_piece != null && _piece.HasBlockAtPos(x,y))
             return _piece.color;
+        return world[x, y];
+    }
+
+    public Block GetWorldBlock(int x, int y)
+    {
+        if (x < 0 || x > xMax || y < 0 || y > yMax)
+            return Block.Wall;
         return world[x, y];
     }
 
