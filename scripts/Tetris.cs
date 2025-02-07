@@ -11,11 +11,11 @@ public partial class Tetris : Node
 
     public override async void _Ready()
     {
-        _gridData = GameData.Instance.GridData;      
+        _gridData = GameData.Instance.GridData;    
         _tileGrid = GetNode("%grid") as TileMapLayer;
         _gridData.SpawnPiece(new L());
 
-        _UpdateTiles();
+        UpdateTiles();
         await Start();
     }
 
@@ -32,7 +32,7 @@ public partial class Tetris : Node
     private async Task _Update()
     {
         var piece = _gridData.Piece;
-        await Task.Delay(GameData.Instance.UpdateDelay);
+        await Task.Delay(GameData.Instance.CurrentDelay);
 
         if (piece != null)
         {
@@ -52,10 +52,10 @@ public partial class Tetris : Node
             throw new NotImplementedException();
         }
 
-        _UpdateTiles();
+        UpdateTiles();
     }
 
-    private void _UpdateTiles()
+    public void UpdateTiles()
     {
         for (int x = 0; x < GridData.xMax; x++)
             for (int y = 0; y < GridData.yMax; y++)

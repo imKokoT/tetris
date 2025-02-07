@@ -8,9 +8,11 @@ public class GridData
     private Piece _piece;
     public Piece Piece => _piece;
 
+
+    # region methods
     public Block GetBlock(int x, int y)
     {
-        if (x < 0 || x > xMax || y < 0 || y > yMax)
+        if (x < 0 || x >= xMax || y < 0 || y >= yMax)
             return Block.Wall;
         if (_piece != null && _piece.HasBlockAtPos(x,y))
             return _piece.color;
@@ -19,7 +21,7 @@ public class GridData
 
     public Block GetWorldBlock(int x, int y)
     {
-        if (x < 0 || x > xMax || y < 0 || y > yMax)
+        if (x < 0 || x >= xMax || y < 0 || y >= yMax)
             return Block.Wall;
         return world[x, y];
     }
@@ -32,6 +34,8 @@ public class GridData
         // TODO: conditions to spawn piece or game over
         _piece = piece;
     }
+
+    #endregion
 }
 
 
