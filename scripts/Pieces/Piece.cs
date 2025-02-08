@@ -101,7 +101,7 @@ namespace Pieces
             {
                 1 => new I(),
                 2 => new L(),
-                3 or 4 or 5 or 6 or 7 => new I(Block.Red),
+                3 or 4 or 5 or 6 or 7 => new L(Block.Red),
                 _ => throw new NotImplementedException($"Piece not exists"),
             };
         } 

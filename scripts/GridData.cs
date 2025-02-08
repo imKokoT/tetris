@@ -44,7 +44,8 @@ public class GridData
     {
         for (int x = 0; x < _piece.Blocks.GetLength(0); x++)
             for (int y = 0; y < _piece.Blocks.GetLength(1); y++)
-                world[_piece.pos.X+x, _piece.pos.Y + y] = _piece.Blocks[x, y];
+                if (_piece.Blocks[x,y] != Block.None)
+                    world[_piece.pos.X + x, _piece.pos.Y + y] = _piece.Blocks[x, y];
         _piece = null;
     }
 

@@ -31,7 +31,6 @@ public partial class Tetris : Node
     private async Task _Update()
     {
         var piece = _gridData.Piece;
-        await Task.Delay(GameData.Instance.CurrentDelay);
 
         if (piece != null)
         {
@@ -48,6 +47,7 @@ public partial class Tetris : Node
         }
 
         UpdateTiles();
+        await Task.Delay(GameData.Instance.CurrentDelay);
     }
 
     public void UpdateTiles()
