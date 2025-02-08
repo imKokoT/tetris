@@ -22,7 +22,7 @@ namespace Pieces
         { 
             get => _rotation; 
             set {
-                _rotation = value % 4;
+                _rotation = Mathf.PosMod(value, 4);
                 pos += _rotation switch
                 {
                     0 => new(_posRotationalModifier.X, -_posRotationalModifier.Y),
@@ -75,7 +75,11 @@ namespace Pieces
 
         public bool CanRotTo(int rotation)
         {
-            throw new NotImplementedException();
+            int tmp = Rotation - rotation;
+            Rotation += tmp;
+            bool can = CanMoveAt(Vector2I.Zero);
+            Rotation -= tmp;
+            return can;
         }
 
         #endregion

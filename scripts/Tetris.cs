@@ -42,7 +42,10 @@ public partial class Tetris : Node
                 _gridData.PlacePiece();
         }
         else
+        {
+            await Task.Delay(1000);
             _gridData.SpawnPiece();
+        }
 
         UpdateTiles();
     }

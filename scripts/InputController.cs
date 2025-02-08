@@ -20,6 +20,17 @@ public partial class InputController : Node
         var piece = _gridData.Piece;
         if (piece == null) return;
 
+        if (Input.IsActionJustPressed("rot-right") && piece.CanRotTo(piece.Rotation+1))
+        {
+            piece.Rotation++;
+            _tetris.UpdateTiles();
+        }
+        if (Input.IsActionJustPressed("rot-left") && piece.CanRotTo(piece.Rotation-1))
+        {
+            piece.Rotation--;
+            _tetris.UpdateTiles();
+        }
+
         if (Input.IsActionJustPressed("move-right") && piece.CanMoveAt(Vector2I.Right))
         {
             piece.pos.X++;
