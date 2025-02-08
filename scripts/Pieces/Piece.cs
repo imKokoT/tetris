@@ -105,7 +105,7 @@ namespace Pieces
                 4 => new T(),
                 5 => new S(),
                 6 => new Z(),
-                7 => new L(Block.Red),
+                7 => new O(),
                 _ => throw new NotImplementedException($"Piece not exists"),
             };
         } 
