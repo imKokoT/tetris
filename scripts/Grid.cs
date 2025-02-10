@@ -35,7 +35,13 @@ public class Grid
     /// </summary>
     public void SpawnPiece()
     {
-        // TODO: conditions to spawn piece or game over        
+        if (!_nextPiece.CanMoveAt(Vector2I.Zero))
+        {
+            GameData.Instance.State = GameState.GameOver;
+            GD.Print("GAME OVER!");
+            return;
+        }
+        
         _piece = _nextPiece;
         _nextPiece = Piece.GenerateRandPiece();
     }
