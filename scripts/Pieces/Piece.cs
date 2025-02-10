@@ -64,7 +64,7 @@ namespace Pieces
 
         public bool CanMoveAt(Vector2I pos)
         {
-            GridData grid = GameData.Instance.GridData;
+            Grid grid = GameData.Instance.GridData;
 
             for (int x = 0; x < Blocks.GetLength(0); x++)
                 for (int y = 0; y < Blocks.GetLength(1); y++)

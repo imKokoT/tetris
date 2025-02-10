@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public partial class Tetris : Node
 {
-    GridData _gridData;
+    Grid _gridData;
     TileMapLayer _tileGrid;
 
     public override async void _Ready()
@@ -52,8 +52,8 @@ public partial class Tetris : Node
 
     public void UpdateTiles()
     {
-        for (int x = 0; x < GridData.xMax; x++)
-            for (int y = 0; y < GridData.yMax; y++)
+        for (int x = 0; x < Grid.xMax; x++)
+            for (int y = 0; y < Grid.yMax; y++)
             {
                 var current = _gridData.GetBlock(x, y);
                 if (current != Block.None)

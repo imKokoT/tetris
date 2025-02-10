@@ -2,7 +2,7 @@ using Godot;
 using Pieces;
 
 
-public class GridData
+public class Grid
 {
     public const int xMax = 10, yMax = 20;
     public Block[,] world = new Block[xMax, yMax];

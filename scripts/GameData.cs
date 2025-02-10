@@ -6,7 +6,7 @@ public class GameData
 
     public GameState State { get; set; }
     public int Score { get; set; }
-    public GridData GridData { get; set; } = new GridData();
+    public Grid GridData { get; set; } = new Grid();
 
     public int CurrentDelay = 1000;
     public int UpdateDelay = 1000;

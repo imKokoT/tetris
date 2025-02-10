@@ -3,7 +3,7 @@ using Godot;
 
 public partial class InputController : Node
 {
-    GridData _gridData;
+    Grid _gridData;
     Tetris _tetris;
 
     public override void _Ready()
