@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cwlc3icftm62l"]
+[gd_scene load_steps=11 format=4 uid="uid://cwlc3icftm62l"]
 
 [ext_resource type="Texture2D" uid="uid://b2f25ivy0w8gk" path="res://textures/layout.png" id="1_5gg8b"]
 [ext_resource type="Script" path="res://scripts/Tetris.cs" id="1_gl7w8"]
 [ext_resource type="Script" path="res://scripts/UpdateScore.cs" id="2_3g7cw"]
 [ext_resource type="Texture2D" uid="uid://bia07ntdcewqq" path="res://textures/block.res" id="2_t63cs"]
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="3_mtcrl"]
+[ext_resource type="Script" path="res://scripts/NextPiece.cs" id="5_rbwff"]
 [ext_resource type="Script" path="res://scripts/InputController.cs" id="6_r4tdx"]
 
 [sub_resource type="TextMesh" id="TextMesh_c6frk"]
@@ -58,6 +59,7 @@ tile_set = SubResource("TileSet_tejjt")
 [node name="next piece" type="TileMapLayer" parent="."]
 position = Vector2(89, 33)
 tile_set = SubResource("TileSet_tejjt")
+script = ExtResource("5_rbwff")
 
 [node name="layout" type="Sprite2D" parent="."]
 texture_filter = 1
