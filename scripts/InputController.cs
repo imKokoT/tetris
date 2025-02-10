@@ -43,8 +43,13 @@ public partial class InputController : Node
         }
 
         if (Input.IsActionPressed("move-down"))
+        {
             GameData.Instance.CurrentDelay = GameData.MIN_DELAY;
-        else
-            GameData.Instance.CurrentDelay = GameData.Instance.UpdateDelay;
+            _tetris.GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
+            
+        }
+        else GameData.Instance.CurrentDelay = GameData.Instance.UpdateDelay;
+        if (Input.IsActionJustPressed("move-down"))
+            _tetris.GameLoopTimer.Start();
     }
 }

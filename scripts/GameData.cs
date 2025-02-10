@@ -2,14 +2,14 @@
 public class GameData
 {
     public static GameData Instance { get; private set; } = new GameData();
-    public const int MIN_DELAY = 20;
+    public const float MIN_DELAY = 0.025f;
 
     public GameState State { get; set; }
     public int Score { get; set; }
     public Grid GridData { get; set; } = new Grid();
 
-    public int CurrentDelay = 1000;
-    public int UpdateDelay = 1000;
+    public float CurrentDelay = 1;
+    public float UpdateDelay = 1;
 }
 
 public enum GameState

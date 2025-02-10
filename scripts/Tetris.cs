@@ -1,11 +1,11 @@
 using Godot;
-using Pieces;
-using System;
 using System.Threading.Tasks;
 
 
 public partial class Tetris : Node
 {
+    public Timer GameLoopTimer { get; private set; } = new Timer();
+
     Grid _gridData;
     TileMapLayer _tileGrid;
 
@@ -14,6 +14,11 @@ public partial class Tetris : Node
         _gridData = GameData.Instance.GridData;    
         _tileGrid = GetNode("%grid") as TileMapLayer;
 
+        // setup timer
+        GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
+        AddChild(GameLoopTimer);
+
+        // start game
         UpdateTiles();
         await Start();
     }
@@ -23,6 +28,7 @@ public partial class Tetris : Node
     /// </summary>
     public async Task Start()
     {
+        GameLoopTimer.Start();
         while (GameData.Instance.State != GameState.GameOver)
             await _Update();
     }
@@ -47,7 +53,13 @@ public partial class Tetris : Node
         }
 
         UpdateTiles();
-        await Task.Delay(GameData.Instance.CurrentDelay);
+
+        if (Input.IsActionPressed("move-down"))
+            GameData.Instance.Score++;
+
+        await ToSignal(GameLoopTimer, "timeout");
+        GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
+        GameLoopTimer.Start();
     }
 
     public void UpdateTiles()
