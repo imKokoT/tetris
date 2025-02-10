@@ -54,8 +54,8 @@ public partial class Tetris : Node
 
         UpdateTiles();
 
-        if (Input.IsActionPressed("move-down"))
-            GameData.Instance.Score++;
+        //if (Input.IsActionPressed("move-down"))
+        //    GameData.Instance.Score++;
 
         await ToSignal(GameLoopTimer, "timeout");
         GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;

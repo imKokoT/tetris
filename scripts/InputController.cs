@@ -16,7 +16,7 @@ public partial class InputController : Node
     {
 
 
-        //  --- piece control ------------------------------------------------
+        #region piece control
         var piece = _gridData.Piece;
         if (piece == null) return;
 
@@ -51,5 +51,6 @@ public partial class InputController : Node
         else GameData.Instance.CurrentDelay = GameData.Instance.UpdateDelay;
         if (Input.IsActionJustPressed("move-down"))
             _tetris.GameLoopTimer.Start();
+        #endregion
     }
 }
