@@ -44,7 +44,7 @@ namespace Pieces
         public Block[,] Blocks => _blocks[_rotation];
 
 
-        public Block[,] GetBlocksByRot(byte rot) => _blocks[rot%4];
+        public Block[,] GetBlocksByRot(byte rot) => _blocks[Mathf.PosMod(rot, 4)];
         
         public Block GetBlockFromPos(Vector2I position)
         {

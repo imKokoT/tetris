@@ -6,7 +6,7 @@ public partial class InputController : Node
     GridData _gridData;
     Tetris _tetris;
 
-    public override async void _Ready()
+    public override void _Ready()
     {
         _gridData = GameData.Instance.GridData;
         _tetris = GetNode<Tetris>("/root/Tetris");

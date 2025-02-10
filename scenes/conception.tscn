@@ -57,6 +57,7 @@ tile_map_data = PackedByteArray("AAADABMAAAAAAAAAAAAEABIAAAAAAAAAAAAEABMAAAAAAAA
 tile_set = SubResource("TileSet_tejjt")
 
 [node name="next piece" type="TileMapLayer" parent="."]
+z_index = 1
 position = Vector2(89, 33)
 tile_set = SubResource("TileSet_tejjt")
 script = ExtResource("5_rbwff")
