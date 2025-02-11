@@ -20,6 +20,7 @@ public partial class Tetris : Node
         AddChild(GameLoopTimer);
 
         // start game
+        Input.MouseMode = Input.MouseModeEnum.Captured;
         UpdateTiles();
         await Start();
     }

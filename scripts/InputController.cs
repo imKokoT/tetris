@@ -20,13 +20,13 @@ public partial class InputController : Node
     {
 
         if (Input.IsActionJustPressed("exit") &&
-            GameData.Instance.State == GameState.Pause || GameData.Instance.State == GameState.GameOver)
+            (GameData.Instance.State == GameState.Pause || GameData.Instance.State == GameState.GameOver))
         {
             // TODO: exit to menu
             GD.Print("exiting to menu");
         }
 
-            Play();
+        Play();
         Pause();
     }
 
@@ -34,12 +34,14 @@ public partial class InputController : Node
     {
         if (Input.IsActionJustPressed("pause") && GameData.Instance.State == GameState.Pause)
         {
+            Input.MouseMode = Input.MouseModeEnum.Captured;
             GameData.Instance.State = GameState.Play;
             _pauseGUI.Visible = false;
             GetTree().Paused = false;
         }
         else if (Input.IsActionJustPressed("pause") && GameData.Instance.State == GameState.Play)
         {
+            Input.MouseMode = Input.MouseModeEnum.Visible;
             GameData.Instance.State = GameState.Pause;
             _pauseGUI.Visible = true;
             GetTree().Paused = true;
