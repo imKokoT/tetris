@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtequnmqjrb0j"]
+
+[ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="1_i13ly"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_65rrv"]
+font = ExtResource("1_i13ly")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_cs7dk"]
+font = ExtResource("1_i13ly")
+font_color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="Pause" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.345098)
+
+[node name="gameover" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -43.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_65rrv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 44.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "press 'p' to continue or 'esc' to exit"
+label_settings = SubResource("LabelSettings_cs7dk")
+horizontal_alignment = 1
+vertical_alignment = 2
