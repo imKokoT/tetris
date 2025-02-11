@@ -50,6 +50,7 @@ region = Rect2(48, 0, 159, 166)
 script = ExtResource("1_48ml2")
 
 [node name="GUI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 layer = 5
 
 [node name="GameOver" parent="GUI" instance=ExtResource("2_vsvgh")]

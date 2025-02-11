@@ -1,4 +1,5 @@
 using Godot;
+using Pieces;
 
 
 public partial class InputController : Node
@@ -14,18 +15,22 @@ public partial class InputController : Node
 
     public override void _Process(double delta)
     {
+        OnPlay();
+    }
 
+    private void OnPlay()
+    {
+        if (GameData.Instance.State != GameState.Play) return;
 
-        #region piece control
-        var piece = _gridData.Piece;
+            var piece = _gridData.Piece;
         if (piece == null) return;
 
-        if (Input.IsActionJustPressed("rot-right") && piece.CanRotTo(piece.Rotation+1))
+        if (Input.IsActionJustPressed("rot-right") && piece.CanRotTo(piece.Rotation + 1))
         {
             piece.Rotation++;
             _tetris.UpdateTiles();
         }
-        if (Input.IsActionJustPressed("rot-left") && piece.CanRotTo(piece.Rotation-1))
+        if (Input.IsActionJustPressed("rot-left") && piece.CanRotTo(piece.Rotation - 1))
         {
             piece.Rotation--;
             _tetris.UpdateTiles();
@@ -46,11 +51,10 @@ public partial class InputController : Node
         {
             GameData.Instance.CurrentDelay = GameData.MIN_DELAY;
             _tetris.GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
-            
+
         }
         else GameData.Instance.CurrentDelay = GameData.Instance.UpdateDelay;
         if (Input.IsActionJustPressed("move-down"))
             _tetris.GameLoopTimer.Start();
-        #endregion
     }
 }
