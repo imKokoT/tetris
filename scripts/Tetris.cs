@@ -8,6 +8,7 @@ public partial class Tetris : Node
 
     Grid _gridData;
     TileMapLayer _tileGrid;
+    Control _gameOverGUI = GD.Load<PackedScene>("res://scenes/gameover.tscn").Instantiate<Control>();
 
     public override async void _Ready()
     {
@@ -31,6 +32,10 @@ public partial class Tetris : Node
         GameLoopTimer.Start();
         while (GameData.Instance.State != GameState.GameOver)
             await _Update();
+
+        // game over
+        GameLoopTimer.Stop();
+        GetNode("%GUI").AddChild(_gameOverGUI);
     }
 
 

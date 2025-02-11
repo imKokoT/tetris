@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://cwlc3icftm62l"]
+[gd_scene load_steps=12 format=4 uid="uid://cwlc3icftm62l"]
 
 [ext_resource type="Script" path="res://scripts/Tetris.cs" id="1_48ml2"]
-[ext_resource type="PackedScene" uid="uid://dbs5jmk68kmde" path="res://scenes/gameover.tscn" id="2_vsvgh"]
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="2_ww55i"]
 [ext_resource type="Script" path="res://scripts/UpdateScore.cs" id="3_e3qwu"]
 [ext_resource type="Texture2D" uid="uid://b77nkvuahs3tf" path="res://textures/main.png" id="4_yecsd"]
@@ -52,8 +51,6 @@ script = ExtResource("1_48ml2")
 [node name="GUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 layer = 5
-
-[node name="GameOver" parent="GUI" instance=ExtResource("2_vsvgh")]
 
 [node name="score" type="Label" parent="."]
 z_index = 1
