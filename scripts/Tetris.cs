@@ -39,7 +39,12 @@ public partial class Tetris : Node
 
     private void OnGameOver()
     {
-        // TODO: save score
+        if (GameData.Instance.Score > GameData.Instance.HighScore)
+        {
+            GD.Print($"new high score {GameData.Instance.Score}!");
+            GameData.Instance.HighScore = GameData.Instance.Score;
+            GameData.Instance.SaveData();
+        }
 
         GameLoopTimer.Stop();
         GetNode("%GUI").AddChild(_gameOverGUI);
@@ -64,9 +69,6 @@ public partial class Tetris : Node
         }
 
         UpdateTiles();
-
-        //if (Input.IsActionPressed("move-down"))
-        //    GameData.Instance.Score++;
 
         await ToSignal(GameLoopTimer, "timeout");
         GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
