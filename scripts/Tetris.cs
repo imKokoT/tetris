@@ -13,7 +13,7 @@ public partial class Tetris : Node
     public override async void _Ready()
     {
         _gridData = GameData.Instance.GridData;    
-        _tileGrid = GetNode("%grid") as TileMapLayer;
+        _tileGrid = GetNode<TileMapLayer>("%grid");
 
         // setup timer
         GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
@@ -33,11 +33,16 @@ public partial class Tetris : Node
         while (GameData.Instance.State != GameState.GameOver)
             await _Update();
 
-        // game over
+        OnGameOver();
+    }
+
+    private void OnGameOver()
+    {
+        // TODO: save score
+
         GameLoopTimer.Stop();
         GetNode("%GUI").AddChild(_gameOverGUI);
     }
-
 
     private async Task _Update()
     {

@@ -7,22 +7,50 @@ public partial class InputController : Node
     Grid _gridData;
     Tetris _tetris;
 
+    Control _pauseGUI;
+
     public override void _Ready()
     {
         _gridData = GameData.Instance.GridData;
         _tetris = GetNode<Tetris>("/root/Tetris");
+        _pauseGUI = GetNode<Control>("%GUI/Pause");
     }
 
     public override void _Process(double delta)
     {
-        OnPlay();
+
+        if (Input.IsActionJustPressed("exit") &&
+            GameData.Instance.State == GameState.Pause || GameData.Instance.State == GameState.GameOver)
+        {
+            // TODO: exit to menu
+            GD.Print("exiting to menu");
+        }
+
+            Play();
+        Pause();
     }
 
-    private void OnPlay()
+    private void Pause()
+    {
+        if (Input.IsActionJustPressed("pause") && GameData.Instance.State == GameState.Pause)
+        {
+            GameData.Instance.State = GameState.Play;
+            _pauseGUI.Visible = false;
+            GetTree().Paused = false;
+        }
+        else if (Input.IsActionJustPressed("pause") && GameData.Instance.State == GameState.Play)
+        {
+            GameData.Instance.State = GameState.Pause;
+            _pauseGUI.Visible = true;
+            GetTree().Paused = true;
+        }
+    }
+
+    private void Play()
     {
         if (GameData.Instance.State != GameState.Play) return;
-
-            var piece = _gridData.Piece;
+            
+        var piece = _gridData.Piece;
         if (piece == null) return;
 
         if (Input.IsActionJustPressed("rot-right") && piece.CanRotTo(piece.Rotation + 1))
