@@ -14,16 +14,45 @@ public class GameData
     public float CurrentDelay = 1;
     public float UpdateDelay = 1;
 
+
+    public GameData()
+    {
+        LoadData();
+    }
+
     public void SaveData()
     {
         var config = new ConfigFile();
 
         config.SetValue("", "high_score", HighScore);
 
-        if (OS.IsDebugBuild())
+        if (OS.IsDebugBuild() && !OS.HasFeature("template"))
             config.Save("res://_saves//data.cfg");
         else
             config.Save("user://data.cfg");
+
+        GD.Print("saved data.cfg");
+    }
+
+    public void LoadData()
+    {
+        var config = new ConfigFile();
+        Error err;
+
+        if (OS.IsDebugBuild() && !OS.HasFeature("template"))
+            err = config.Load("res://_saves//data.cfg");
+        else
+            err = config.Load("user://data.cfg");
+
+        if (err != Error.Ok)
+        {
+            GD.PushWarning("failed to load data.cfg");
+            return;
+        }
+
+        HighScore = (int)config.GetValue("", "high_score");
+
+        GD.Print("loaded data.cfg");
     }
 }
 
