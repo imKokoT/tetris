@@ -70,7 +70,7 @@ public class Grid
             if (world.GetRow(y).Contains(Block.None)) continue;
 
             filled++;
-            for (int dy = y; dy > 1; dy--)
+            for (int dy = y; dy > 0; dy--)
                 world.SetRow(world.GetRow(dy - 1), dy);
         }
         _filledBefore = filled > 0;
