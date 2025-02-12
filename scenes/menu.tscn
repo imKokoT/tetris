@@ -1,0 +1,167 @@
+[gd_scene load_steps=15 format=3 uid="uid://bxuwkygnayeb6"]
+
+[ext_resource type="Texture2D" uid="uid://b77nkvuahs3tf" path="res://textures/main.png" id="1_n1l1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmtkt"]
+atlas = ExtResource("1_n1l1a")
+region = Rect2(1, 167, 104, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiuju"]
+atlas = ExtResource("1_n1l1a")
+region = Rect2(1, 241, 33, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sxmq"]
+atlas = ExtResource("1_n1l1a")
+region = Rect2(36, 20, 5, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xsu86"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7co2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h63dm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nna8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scmpu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tsyiy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tfoly"]
+texture = ExtResource("1_n1l1a")
+region_rect = Rect2(1, 196, 30, 41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iug3v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnu36"]
+texture = ExtResource("1_n1l1a")
+region_rect = Rect2(33, 196, 30, 41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qv5e7"]
+
+[node name="Menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.365
+anchor_top = 0.301
+anchor_right = 0.635
+anchor_bottom = 0.431
+offset_left = 207.2
+offset_top = 79.92
+offset_right = -207.2
+offset_bottom = -32.4799
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(52, 20)
+texture = SubResource("AtlasTexture_gmtkt")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.434296
+anchor_right = 0.385
+anchor_bottom = 0.434296
+offset_top = -4.0401
+offset_right = -591.2
+offset_bottom = 8.9599
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(0, 8.6)
+texture = SubResource("AtlasTexture_tiuju")
+region_rect = Rect2(0, 0, 33, 13)
+patch_margin_right = 31
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.73596
+anchor_top = 0.586122
+anchor_right = 2.12096
+anchor_bottom = 0.586122
+offset_left = -1413.05
+offset_top = -168.011
+offset_right = -2004.25
+offset_bottom = -155.011
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-5, 5)
+pivot_offset = Vector2(0, 8.6)
+texture = SubResource("AtlasTexture_tiuju")
+region_rect = Rect2(0, 0, 33, 13)
+patch_margin_right = 31
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.015
+anchor_right = 1.0
+anchor_bottom = 0.015
+offset_left = 768.0
+offset_top = -0.120001
+offset_right = -768.0
+offset_bottom = 0.879999
+grow_horizontal = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(192, 0.5)
+texture = SubResource("AtlasTexture_5sxmq")
+region_rect = Rect2(0, 0, 5, 1)
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.015
+anchor_right = 1.0
+anchor_bottom = 0.015
+offset_left = 768.0
+offset_top = 1037.88
+offset_right = -768.0
+offset_bottom = 1038.88
+grow_horizontal = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(192, 0.5)
+texture = SubResource("AtlasTexture_5sxmq")
+region_rect = Rect2(0, 0, 5, 1)
+axis_stretch_horizontal = 1
+
+[node name="play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.541
+anchor_top = 0.74763
+anchor_right = 0.541
+anchor_bottom = 0.74763
+offset_left = 75.28
+offset_top = -49.4401
+offset_right = 113.28
+offset_bottom = -0.440063
+scale = Vector2(5, 5)
+pivot_offset = Vector2(19, 49)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xsu86")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7co2h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h63dm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nna8n")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scmpu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tsyiy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tfoly")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_iug3v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wnu36")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qv5e7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_tfoly")
+button_mask = 7
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
