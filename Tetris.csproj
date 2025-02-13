@@ -8,4 +8,7 @@
   <ItemGroup>
     <None Include=".editorconfig" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="scenes\" />
+  </ItemGroup>
 </Project>

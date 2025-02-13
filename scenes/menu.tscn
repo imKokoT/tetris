@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxuwkygnayeb6"]
+[gd_scene load_steps=22 format=3 uid="uid://bxuwkygnayeb6"]
 
 [ext_resource type="Texture2D" uid="uid://b77nkvuahs3tf" path="res://textures/main.png" id="1_n1l1a"]
 [ext_resource type="Script" path="res://scripts/buttons/menu/Play.cs" id="2_hbkx6"]
 [ext_resource type="Script" path="res://scripts/buttons/menu/Exit.cs" id="3_tn6hv"]
+[ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="4_bc8rn"]
+[ext_resource type="Script" path="res://scripts/HighScoreDisplay.cs" id="5_2e08r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmtkt"]
 atlas = ExtResource("1_n1l1a")
@@ -47,6 +49,11 @@ region_rect = Rect2(65, 196, 30, 41)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrswe"]
 texture = ExtResource("1_n1l1a")
 region_rect = Rect2(97, 196, 30, 41)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hocse"]
+font = ExtResource("4_bc8rn")
+font_size = 36
+font_color = Color(0.14902, 0.760784, 0.0588235, 1)
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -205,3 +212,18 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_k8pc3")
 button_mask = 7
 icon_alignment = 1
 script = ExtResource("3_tn6hv")
+
+[node name="hi-score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.5
+anchor_right = 0.254
+anchor_bottom = 0.538
+offset_left = -0.520004
+offset_top = 4.0
+offset_right = -198.68
+offset_bottom = -0.0400391
+text = "hi-score: 0"
+label_settings = SubResource("LabelSettings_hocse")
+script = ExtResource("5_2e08r")
