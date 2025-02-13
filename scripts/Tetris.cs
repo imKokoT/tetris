@@ -9,11 +9,13 @@ public partial class Tetris : Node
     Grid _gridData;
     TileMapLayer _tileGrid;
     Control _gameOverGUI = GD.Load<PackedScene>("res://scenes/gameover.tscn").Instantiate<Control>();
+    Control _onStartGUI;
 
     public override async void _Ready()
     {
         _gridData = GameData.Instance.GridData;    
         _tileGrid = GetNode<TileMapLayer>("%grid");
+        _onStartGUI = GetNode<Control>("%GUI/OnStart");
 
         // setup timer
         GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
@@ -30,10 +32,18 @@ public partial class Tetris : Node
     /// </summary>
     public async Task Start()
     {
+        // on start gui cutscene
+        GameData.Instance.State = GameState.Cutscene;
+        _onStartGUI.Visible = true;
+        await ToSignal(_onStartGUI.GetNode<AnimationPlayer>("AnimationPlayer"), "animation_finished");
+
+        // main game
+        GameData.Instance.State = GameState.Play;
         GameLoopTimer.Start();
         while (GameData.Instance.State != GameState.GameOver)
             await _Update();
 
+        // game over
         OnGameOver();
     }
 

@@ -60,6 +60,6 @@ public enum GameState
 {
     Play,
     Pause,
-    Menu,
-    GameOver
+    GameOver,
+    Cutscene
 }
