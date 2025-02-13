@@ -26,6 +26,7 @@ public partial class InputController : Node
             GetTree().Paused = false;
             GameData.Recreate();
             GetTree().ChangeSceneToFile("res://scenes/menu.tscn");
+            Input.MouseMode = Input.MouseModeEnum.Visible;
             GD.Print("exiting to menu scene");
         }
         if (Input.IsActionJustPressed("restart") && GameData.Instance.State == GameState.GameOver)
