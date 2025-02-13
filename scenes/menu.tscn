@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxuwkygnayeb6"]
+[gd_scene load_steps=19 format=3 uid="uid://bxuwkygnayeb6"]
 
 [ext_resource type="Texture2D" uid="uid://b77nkvuahs3tf" path="res://textures/main.png" id="1_n1l1a"]
+[ext_resource type="Script" path="res://scripts/buttons/menu/Play.cs" id="2_hbkx6"]
+[ext_resource type="Script" path="res://scripts/buttons/menu/Exit.cs" id="3_tn6hv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmtkt"]
 atlas = ExtResource("1_n1l1a")
@@ -173,8 +175,10 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qv5e7")
 theme_override_styles/normal = SubResource("StyleBoxTexture_tfoly")
 button_mask = 7
 icon_alignment = 1
+script = ExtResource("2_hbkx6")
 
 [node name="exit" type="Button" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.46
@@ -200,3 +204,4 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qv5e7")
 theme_override_styles/normal = SubResource("StyleBoxTexture_k8pc3")
 button_mask = 7
 icon_alignment = 1
+script = ExtResource("3_tn6hv")
