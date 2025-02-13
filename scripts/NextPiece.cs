@@ -8,7 +8,7 @@ public partial class NextPiece : TileMapLayer
 
     public override void _Process(double delta)
     {
-        var gridData = GameData.Instance.GridData;
+        var gridData = GameData.Instance.Grid;
         if (gridData.NextPiece == _prev) return;
         
         _prev = gridData.NextPiece;

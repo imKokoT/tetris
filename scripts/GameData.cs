@@ -1,18 +1,19 @@
-
 using Godot;
 
 public class GameData
 {
+    public const float MIN_DELAY = 0.040f, DEFAULT_DELAY = 1;
+
     public static GameData Instance { get; private set; } = new GameData();
-    public const float MIN_DELAY = 0.025f;
+    public static void Recreate() => Instance = new GameData();
 
     public GameState State { get; set; }
     public int Score { get; set; }
-    public int HighScore {  get; set; }
-    public Grid GridData { get; set; } = new Grid();
+    public int HighScore { get; set; }
+    public Grid Grid { get; set; } = new Grid();
 
-    public float CurrentDelay = 1;
-    public float UpdateDelay = 1;
+    public float CurrentDelay = DEFAULT_DELAY;
+    public float UpdateDelay = DEFAULT_DELAY;
 
 
     public GameData()

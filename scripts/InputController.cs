@@ -1,5 +1,6 @@
 using Godot;
 using Pieces;
+using System.Threading.Tasks;
 
 
 public partial class InputController : Node
@@ -11,7 +12,7 @@ public partial class InputController : Node
 
     public override void _Ready()
     {
-        _gridData = GameData.Instance.GridData;
+        _gridData = GameData.Instance.Grid;
         _tetris = GetNode<Tetris>("/root/Tetris");
         _pauseGUI = GetNode<Control>("%GUI/Pause");
     }
@@ -22,8 +23,16 @@ public partial class InputController : Node
         if (Input.IsActionJustPressed("exit") &&
             (GameData.Instance.State == GameState.Pause || GameData.Instance.State == GameState.GameOver))
         {
-            // TODO: exit to menu
-            GD.Print("exiting to menu");
+            GetTree().Paused = false;
+            GameData.Recreate();
+            GetTree().ChangeSceneToFile("res://scenes/menu.tscn");
+            GD.Print("exiting to menu scene");
+        }
+        if (Input.IsActionJustPressed("restart") && GameData.Instance.State == GameState.GameOver)
+        {
+            GameData.Recreate();
+            GetTree().ChangeSceneToFile("res://scenes/game.tscn");
+            GD.Print("reloading game scene");
         }
 
         Play();

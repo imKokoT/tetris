@@ -13,7 +13,7 @@ public partial class Tetris : Node
 
     public override async void _Ready()
     {
-        _gridData = GameData.Instance.GridData;    
+        _gridData = GameData.Instance.Grid;    
         _tileGrid = GetNode<TileMapLayer>("%grid");
         _onStartGUI = GetNode<Control>("%GUI/OnStart");
 

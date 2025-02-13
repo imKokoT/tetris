@@ -10,6 +10,7 @@ public partial class Play : Button
 
     private void OnRelease()
     {
+        GD.Print("loading game scene");
         GetTree().ChangeSceneToFile("res://scenes/game.tscn");
     }
 }
