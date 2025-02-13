@@ -73,8 +73,20 @@ public class Grid
             for (int dy = y; dy > 0; dy--)
                 world.SetRow(world.GetRow(dy - 1), dy);
         }
-        _filledBefore = filled > 0;
         GameData.Instance.Score += filled > 0 ? 100 * (int)Mathf.Pow(2, filled) * _fillMultiplier : 0;
+
+        // apply game speed
+        if (filled > 0 && !_filledBefore && GameData.Instance.UpdateDelay > GameData.MIN_DELAY*2)
+        {
+            var gd = GameData.Instance;
+
+            gd.UpdateDelay *= 1f - 0.05f * (gd.Level / 10 + 1);
+            gd.CurrentDelay = gd.UpdateDelay;
+            GD.Print($"Level {gd.Level}; Game speed changed to {gd.CurrentDelay:F3} sec/upd!");
+            gd.Level++;
+        }
+
+        _filledBefore = filled > 0;
     }
 
     #endregion

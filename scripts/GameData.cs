@@ -10,6 +10,7 @@ public class GameData
     public GameState State { get; set; }
     public int Score { get; set; }
     public int HighScore { get; set; }
+    public int Level { get; set; }
     public Grid Grid { get; set; } = new Grid();
 
     public float CurrentDelay = DEFAULT_DELAY;

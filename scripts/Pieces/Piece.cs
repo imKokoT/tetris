@@ -44,8 +44,6 @@ namespace Pieces
             else throw new ArgumentException("wrong direction");
             
         }
-
-        //public Block[,] GetBlocksByRot(byte rot) => _blocks[Mathf.PosMod(rot, 4)];
         
         public Block GetBlockFromPos(Vector2I position)
         {
