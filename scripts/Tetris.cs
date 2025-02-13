@@ -54,6 +54,7 @@ public partial class Tetris : Node
             GD.Print($"new high score {GameData.Instance.Score}!");
             GameData.Instance.HighScore = GameData.Instance.Score;
             GameData.Instance.SaveData();
+            _gameOverGUI.GetNode<Label>("high-score").Visible = true;
         }
 
         GameLoopTimer.Stop();
