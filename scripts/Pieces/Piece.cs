@@ -8,8 +8,7 @@ namespace Pieces
     {
         public readonly Block color;
         public Vector2I pos = new(4, 0);
-        
-        protected Vector2I _posRotationalModifier= new(1, 0);
+
         protected int _rotation = 0;
         /// <summary>
         /// Figure rotation, where:
@@ -18,33 +17,35 @@ namespace Pieces
         /// - 2 -> 180 
         /// - 3 -> 270
         /// </summary>
-        public int Rotation 
-        { 
-            get => _rotation; 
-            set {
-                _rotation = Mathf.PosMod(value, 4);
-                pos += _rotation switch
-                {
-                    0 => new(_posRotationalModifier.X, -_posRotationalModifier.Y),
-                    1 => new(-_posRotationalModifier.X, _posRotationalModifier.Y),
-                    2 => new(_posRotationalModifier.X, -_posRotationalModifier.Y),
-                    3 => new(-_posRotationalModifier.X, _posRotationalModifier.Y),
-                    _ => throw new NotImplementedException()
-                };
-            }
-        }
+        public int Rotation => _rotation;
 
-        /// <summary>
-        /// represents 4 figure's rotations as set of blocks, where 1 is block
-        /// </summary>
-        protected Block[][,] _blocks;
+        protected Block[,] _blocks;
         /// <summary>
         /// returns figures blocks
         /// </summary>
-        public Block[,] Blocks => _blocks[_rotation];
+        public Block[,] Blocks => _blocks;
 
+        /// <summary>
+        /// rotate figure to 90 or -90
+        /// </summary>
+        /// <param name="direction">possible values: 1(+90), -1(-90)</param>
+        public void Rotate(int direction = 1)
+        {
+            if (_rotation == 1)
+            {
+                _blocks = _blocks.TransformRight();
+                _rotation = Mathf.PosMod(_rotation + 1, 4);
+            }
+            else if (_rotation == -1)
+            {
+                _blocks = _blocks.TransformLeft();
+                _rotation = Mathf.PosMod(_rotation - 1, 4);
+            }
+            else throw new ArgumentException("wrong direction");
+            
+        }
 
-        public Block[,] GetBlocksByRot(byte rot) => _blocks[Mathf.PosMod(rot, 4)];
+        //public Block[,] GetBlocksByRot(byte rot) => _blocks[Mathf.PosMod(rot, 4)];
         
         public Block GetBlockFromPos(Vector2I position)
         {
@@ -75,10 +76,9 @@ namespace Pieces
 
         public bool CanRotTo(int rotation)
         {
-            int tmp = Rotation - rotation;
-            Rotation += tmp;
+            Rotate(1);
             bool can = CanMoveAt(Vector2I.Zero);
-            Rotation -= tmp;
+            Rotate(-1);
             return can;
         }
 
@@ -95,7 +95,6 @@ namespace Pieces
 
         public static Piece GenerateRandPiece()
         {
-            // TODO: implement other pieces
             int p = GD.RandRange(1, 7);
             return p switch
             {

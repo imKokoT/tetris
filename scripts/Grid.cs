@@ -108,4 +108,30 @@ static class BlockExtensions
         for (int col = 0; col < grid.GetLength(0); col++)
             grid[col, rowIndex] = row[col];
     }
+
+    public static Block[,] TransformRight(this Block[,] grid)
+    {
+        int rows = grid.GetLength(0);
+        int cols = grid.GetLength(1);
+        Block[,] tmp = new Block[cols, rows];
+
+        for (int row = 0; row < rows; row++)
+            for (int col = 0; col < cols; col++)
+                tmp[col, rows - 1 - row] = grid[row, col];
+
+        return tmp;
+    }
+
+    public static Block[,] TransformLeft(this Block[,] grid)
+    {
+        int rows = grid.GetLength(0);
+        int cols = grid.GetLength(1);
+        Block[,] tmp = new Block[cols, rows];
+
+        for (int row = 0; row < rows; row++)
+            for (int col = 0; col < cols; col++)
+                tmp[cols - 1 - col, row] = grid[row, col];
+
+        return tmp;
+    }
 }
