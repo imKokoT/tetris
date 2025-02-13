@@ -31,12 +31,12 @@ namespace Pieces
         /// <param name="direction">possible values: 1(+90), -1(-90)</param>
         public void Rotate(int direction = 1)
         {
-            if (_rotation == 1)
+            if (direction == 1)
             {
                 _blocks = _blocks.TransformRight();
                 _rotation = Mathf.PosMod(_rotation + 1, 4);
             }
-            else if (_rotation == -1)
+            else if (direction == -1)
             {
                 _blocks = _blocks.TransformLeft();
                 _rotation = Mathf.PosMod(_rotation - 1, 4);

@@ -12,7 +12,7 @@ public partial class NextPiece : TileMapLayer
         if (gridData.NextPiece == _prev) return;
         
         _prev = gridData.NextPiece;
-        Show(_prev.GetBlocksByRot(0), _prev.color);
+        Show(_prev.Blocks, _prev.color);
     }
 
     private void Show(Block[,] blocks, Block color)

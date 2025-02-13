@@ -66,12 +66,12 @@ public partial class InputController : Node
 
         if (Input.IsActionJustPressed("rot-right") && piece.CanRotTo(piece.Rotation + 1))
         {
-            piece.Rotation++;
+            piece.Rotate(1);
             _tetris.UpdateTiles();
         }
         if (Input.IsActionJustPressed("rot-left") && piece.CanRotTo(piece.Rotation - 1))
         {
-            piece.Rotation--;
+            piece.Rotate(-1);
             _tetris.UpdateTiles();
         }
 
