@@ -109,7 +109,7 @@ static class BlockExtensions
             grid[col, rowIndex] = row[col];
     }
 
-    public static Block[,] TransformRight(this Block[,] grid)
+    public static Block[,] TransformLeft(this Block[,] grid)
     {
         int rows = grid.GetLength(0);
         int cols = grid.GetLength(1);
@@ -122,7 +122,7 @@ static class BlockExtensions
         return tmp;
     }
 
-    public static Block[,] TransformLeft(this Block[,] grid)
+    public static Block[,] TransformRight(this Block[,] grid)
     {
         int rows = grid.GetLength(0);
         int cols = grid.GetLength(1);

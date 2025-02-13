@@ -6,7 +6,13 @@ namespace Pieces
         public I(Block color = Block.Cyan) : base(color) 
         {
             var c = color;
-            _blocks = new Block[,]{{c}, {c}, {c}, {c} };
+            pos = new(3,-1);
+            _blocks = new Block[,]{
+                {0,c,0,0},
+                {0,c,0,0},
+                {0,c,0,0},
+                {0,c,0,0},
+            };
         }
     }
 }

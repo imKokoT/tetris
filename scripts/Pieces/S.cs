@@ -7,9 +7,9 @@ namespace Pieces
         {
             var c = color;
             _blocks = 
-                new Block[,] { {0, c },
-                               {c, c },
-                               {c, 0 }};
+                new Block[,] { {0, c, 0 },
+                               {c, c, 0 },
+                               {c, 0, 0 }};
         }
     }
 }
