@@ -98,3 +98,5 @@ zoom = Vector2(4.5, 4.5)
 [node name="input controller" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("6_pfumx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

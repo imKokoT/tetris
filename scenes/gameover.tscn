@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbs5jmk68kmde"]
+[gd_scene load_steps=14 format=3 uid="uid://dbs5jmk68kmde"]
 
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="1_yo12k"]
+[ext_resource type="AudioStream" uid="uid://d0dwreph3c41a" path="res://sounds/explosion.ogg" id="2_di11h"]
+[ext_resource type="AudioStream" uid="uid://bbp76uroy7m77" path="res://sounds/tick.ogg" id="3_g01ip"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ujp6"]
 font = ExtResource("1_yo12k")
@@ -90,6 +92,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_di11h")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_pu252"]
 resource_name = "info blink"
@@ -145,6 +171,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(10.1965, 1),
 "update": 0,
 "values": [Color(0.75, 0.75, 0.75, 0), Color(0.75, 0.75, 0.75, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_di11h"), ExtResource("3_g01ip")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 1.06667, 1.13333, 1.2, 1.26667, 1.33333, 1.4, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true, true, true, true, true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mn6pj"]
@@ -297,3 +347,6 @@ libraries = {
 "": SubResource("AnimationLibrary_6djrw")
 }
 autoplay = "high-score"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_di11h")
