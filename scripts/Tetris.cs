@@ -8,14 +8,22 @@ public partial class Tetris : Node
 
     Grid _gridData;
     TileMapLayer _tileGrid;
+    AudioStreamPlayer _player;
+
     Control _gameOverGUI = GD.Load<PackedScene>("res://scenes/gameover.tscn").Instantiate<Control>();
     Control _onStartGUI;
+
+    AudioStream _tickSound = GD.Load<AudioStream>("res://sounds/tick.ogg");
+    AudioStream _placeSound = GD.Load<AudioStream>("res://sounds/place.ogg");
 
     public override async void _Ready()
     {
         _gridData = GameData.Instance.Grid;    
         _tileGrid = GetNode<TileMapLayer>("%grid");
         _onStartGUI = GetNode<Control>("%GUI/OnStart");
+        _player = new AudioStreamPlayer();
+        _player.VolumeDb = -2;
+        AddChild(_player);
 
         // setup timer
         GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
@@ -69,9 +77,17 @@ public partial class Tetris : Node
         {
 
             if (piece.CanMoveAt(Vector2I.Down))
+            {
+                _player.Stream = _tickSound;
+                _player.Play();
                 piece.pos.Y++;
+            }
             else
+            {
                 _gridData.PlacePiece();
+                _player.Stream = _placeSound;
+                _player.Play();
+            }
         }
         else
         {
