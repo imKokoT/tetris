@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://brqbsijgjvkv"]
 
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="1_qu51n"]
-[ext_resource type="AudioStream" uid="uid://b1jr2j1jxyugp" path="res://sounds/click.ogg" id="2_ungdu"]
+[ext_resource type="AudioStream" uid="uid://b1jr2j1jxyugp" path="res://sounds/beep.ogg" id="2_ungdu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ioot"]
 font = ExtResource("1_qu51n")
