@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/buttons/menu/Play.cs" id="2_hbkx6"]
 [ext_resource type="Script" path="res://scripts/buttons/menu/Exit.cs" id="3_tn6hv"]
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="4_bc8rn"]
-[ext_resource type="Script" path="res://scripts/HighScoreDisplay.cs" id="5_2e08r"]
+[ext_resource type="Script" path="res://scripts/labels/HighScoreDisplay.cs" id="5_xoj7i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmtkt"]
 atlas = ExtResource("1_n1l1a")
@@ -226,4 +226,4 @@ offset_right = -198.68
 offset_bottom = -0.0400391
 text = "hi-score: 0"
 label_settings = SubResource("LabelSettings_hocse")
-script = ExtResource("5_2e08r")
+script = ExtResource("5_xoj7i")

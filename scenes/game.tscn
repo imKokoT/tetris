@@ -1,18 +1,24 @@
-[gd_scene load_steps=14 format=4 uid="uid://cwlc3icftm62l"]
+[gd_scene load_steps=16 format=4 uid="uid://cwlc3icftm62l"]
 
 [ext_resource type="Script" path="res://scripts/Tetris.cs" id="1_48ml2"]
 [ext_resource type="PackedScene" uid="uid://dtequnmqjrb0j" path="res://scenes/pause.tscn" id="2_wkmpp"]
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="2_ww55i"]
-[ext_resource type="Script" path="res://scripts/UpdateScore.cs" id="3_e3qwu"]
 [ext_resource type="PackedScene" uid="uid://brqbsijgjvkv" path="res://scenes/on_start.tscn" id="3_k4y71"]
 [ext_resource type="Texture2D" uid="uid://b77nkvuahs3tf" path="res://textures/main.png" id="4_yecsd"]
 [ext_resource type="Script" path="res://scripts/NextPiece.cs" id="5_8e3p0"]
+[ext_resource type="Script" path="res://scripts/labels/UpdateScore.cs" id="5_i6n0r"]
+[ext_resource type="Script" path="res://scripts/labels/UpdateLvl.cs" id="6_ct11c"]
 [ext_resource type="Script" path="res://scripts/InputController.cs" id="6_pfumx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wkrnf"]
 font = ExtResource("2_ww55i")
 font_size = 8
 font_color = Color(0.14902, 0.760784, 0.0588235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ka7vo"]
+font = ExtResource("2_ww55i")
+font_size = 8
+font_color = Color(1, 1, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xy0b"]
 atlas = ExtResource("4_yecsd")
@@ -70,7 +76,18 @@ scale = Vector2(1, 1.125)
 text = "000000"
 label_settings = SubResource("LabelSettings_wkrnf")
 horizontal_alignment = 2
-script = ExtResource("3_e3qwu")
+script = ExtResource("5_i6n0r")
+
+[node name="lvl" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+offset_left = -40.0
+offset_top = -91.0
+offset_right = -5.0
+offset_bottom = -83.0
+text = "level: 1"
+label_settings = SubResource("LabelSettings_ka7vo")
+script = ExtResource("6_ct11c")
 
 [node name="grid" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
