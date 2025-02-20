@@ -14,7 +14,7 @@ config/name="Tetris"
 config/description="My course work.
 
 Special thanks for disign and drawed assets by Lemonade557!"
-config/version="1.0.1a"
+config/version="1.0.2a"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
