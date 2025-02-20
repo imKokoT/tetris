@@ -76,11 +76,11 @@ public class Grid
         GameData.Instance.Score += filled > 0 ? 100 * (int)Mathf.Pow(2, filled) * _fillMultiplier : 0;
 
         // apply game speed
-        if (filled > 0 && !_filledBefore && GameData.Instance.UpdateDelay > GameData.MIN_DELAY*2)
+        if (filled > 0 && !_filledBefore)
         {
             var gd = GameData.Instance;
 
-            gd.UpdateDelay *= 1f - 0.05f * (gd.Level / 10 + 1);
+            gd.UpdateDelay *= gd.Level < 100 ? 1f - 0.05468f * (1f - gd.Level / 100f) : 1;
             gd.CurrentDelay = gd.UpdateDelay;
             GD.Print($"Level {gd.Level}; Game speed changed to {gd.CurrentDelay:F3} sec/upd!");
             gd.Level++;
