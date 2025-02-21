@@ -13,7 +13,7 @@ config_version=5
 config/name="Tetris"
 config/description="My course work.
 
-Special thanks for disign and drawed assets by Lemonade557!"
+Special thanks for design and drawn assets by Lemonade557!"
 config/version="1.0.3a"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
