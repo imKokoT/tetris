@@ -16,7 +16,7 @@ config/description="My course work.
 Special thanks for design and drawn assets by Lemonade557!"
 config/version="1.0.3a"
 run/main_scene="res://scenes/menu.tscn"
-config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://textures/icon.png"

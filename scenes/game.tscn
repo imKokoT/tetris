@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=4 uid="uid://cwlc3icftm62l"]
 
-[ext_resource type="Script" path="res://scripts/Tetris.cs" id="1_48ml2"]
+[ext_resource type="Script" uid="uid://dnwpwtmacor0w" path="res://scripts/Tetris.cs" id="1_48ml2"]
 [ext_resource type="PackedScene" uid="uid://dtequnmqjrb0j" path="res://scenes/pause.tscn" id="2_wkmpp"]
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="2_ww55i"]
 [ext_resource type="PackedScene" uid="uid://brqbsijgjvkv" path="res://scenes/on_start.tscn" id="3_k4y71"]
 [ext_resource type="Texture2D" uid="uid://b77nkvuahs3tf" path="res://textures/main.png" id="4_yecsd"]
-[ext_resource type="Script" path="res://scripts/NextPiece.cs" id="5_8e3p0"]
-[ext_resource type="Script" path="res://scripts/labels/UpdateScore.cs" id="5_i6n0r"]
-[ext_resource type="Script" path="res://scripts/labels/UpdateLvl.cs" id="6_ct11c"]
-[ext_resource type="Script" path="res://scripts/InputController.cs" id="6_pfumx"]
+[ext_resource type="Script" uid="uid://b52kt1fijm6fw" path="res://scripts/NextPiece.cs" id="5_8e3p0"]
+[ext_resource type="Script" uid="uid://lnxcav0oyrh4" path="res://scripts/labels/UpdateScore.cs" id="5_i6n0r"]
+[ext_resource type="Script" uid="uid://8n3nqq0h0x1" path="res://scripts/labels/UpdateLvl.cs" id="6_ct11c"]
+[ext_resource type="Script" uid="uid://mhbsn5mbda3w" path="res://scripts/InputController.cs" id="6_pfumx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wkrnf"]
 font = ExtResource("2_ww55i")
