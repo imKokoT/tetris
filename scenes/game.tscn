@@ -110,7 +110,6 @@ position = Vector2(36.5, 0)
 texture = SubResource("AtlasTexture_beogr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4.5, 4.5)
 
 [node name="input controller" type="Node" parent="."]
 process_mode = 3
