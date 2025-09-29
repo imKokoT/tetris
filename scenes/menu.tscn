@@ -1,46 +1,34 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxuwkygnayeb6"]
+[gd_scene load_steps=23 format=3 uid="uid://bxuwkygnayeb6"]
 
 [ext_resource type="Texture2D" uid="uid://b77nkvuahs3tf" path="res://textures/main.png" id="1_n1l1a"]
-[ext_resource type="Script" path="res://scripts/buttons/menu/Play.cs" id="2_hbkx6"]
-[ext_resource type="Script" path="res://scripts/buttons/menu/Exit.cs" id="3_tn6hv"]
+[ext_resource type="Script" uid="uid://brbpujidiptnk" path="res://scripts/buttons/menu/Play.cs" id="2_hbkx6"]
+[ext_resource type="Script" uid="uid://bllq3i52wxpkc" path="res://scripts/buttons/menu/Exit.cs" id="3_tn6hv"]
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="4_bc8rn"]
-[ext_resource type="Script" path="res://scripts/labels/HighScoreDisplay.cs" id="5_xoj7i"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmtkt"]
-atlas = ExtResource("1_n1l1a")
-region = Rect2(1, 167, 104, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tiuju"]
-atlas = ExtResource("1_n1l1a")
-region = Rect2(1, 241, 33, 13)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5sxmq"]
-atlas = ExtResource("1_n1l1a")
-region = Rect2(36, 20, 5, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xsu86"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7co2h"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h63dm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nna8n"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scmpu"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tsyiy"]
+[ext_resource type="Script" uid="uid://pti44br72xxi" path="res://scripts/labels/HighScoreDisplay.cs" id="5_xoj7i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tfoly"]
 texture = ExtResource("1_n1l1a")
 region_rect = Rect2(1, 196, 30, 41)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iug3v"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qv5e7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnu36"]
 texture = ExtResource("1_n1l1a")
 region_rect = Rect2(33, 196, 30, 41)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qv5e7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iug3v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tsyiy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scmpu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nna8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h63dm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7co2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xsu86"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8pc3"]
 texture = ExtResource("1_n1l1a")
@@ -55,6 +43,22 @@ font = ExtResource("4_bc8rn")
 font_size = 36
 font_color = Color(0.14902, 0.760784, 0.0588235, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sxmq"]
+atlas = ExtResource("1_n1l1a")
+region = Rect2(36, 20, 5, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiuju"]
+atlas = ExtResource("1_n1l1a")
+region = Rect2(1, 241, 33, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ytvr"]
+atlas = ExtResource("1_n1l1a")
+region = Rect2(11, 241, 23, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmtkt"]
+atlas = ExtResource("1_n1l1a")
+region = Rect2(1, 167, 104, 28)
+
 [node name="Menu" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -63,167 +67,154 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(960, 540)
 size_flags_horizontal = 4
 
-[node name="logo" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.394
-anchor_right = 0.5
-anchor_bottom = 0.395
-offset_left = -52.0
-offset_top = -20.52
-offset_right = 52.0
-offset_bottom = 6.40009
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5, 5)
-pivot_offset = Vector2(52, 20)
-texture = SubResource("AtlasTexture_gmtkt")
-stretch_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.459
-anchor_right = 0.386
-anchor_bottom = 0.459
-offset_top = -30.7201
-offset_right = -592.348
-offset_bottom = -17.7201
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5, 5)
-pivot_offset = Vector2(0, 8.6)
-texture = SubResource("AtlasTexture_tiuju")
-region_rect = Rect2(0, 0, 33, 13)
-patch_margin_right = 31
-
-[node name="NinePatchRect2" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.615
-anchor_top = 0.459
-anchor_right = 1.0
-anchor_bottom = 0.459
-offset_left = 739.2
-offset_top = -30.72
-offset_right = 148.0
-offset_bottom = -17.72
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(-5, 5)
-pivot_offset = Vector2(0, 8.6)
-texture = SubResource("AtlasTexture_tiuju")
-region_rect = Rect2(0, 0, 33, 13)
-patch_margin_right = 31
-
-[node name="NinePatchRect3" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.015
-anchor_right = 0.5
-anchor_bottom = 0.015
-offset_left = -192.0
-offset_top = 1.8
-offset_right = 192.0
-offset_bottom = 2.8
-grow_horizontal = 2
-scale = Vector2(5, 5)
-pivot_offset = Vector2(192, 0.5)
-texture = SubResource("AtlasTexture_5sxmq")
-region_rect = Rect2(0, 0, 5, 1)
-axis_stretch_horizontal = 1
-
-[node name="NinePatchRect4" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.979
-anchor_right = 0.5
-anchor_bottom = 0.979
-offset_left = -960.0
-offset_top = -1.32007
-offset_right = -576.0
-offset_bottom = -0.320068
-grow_horizontal = 2
-scale = Vector2(5, 5)
-pivot_offset = Vector2(0, 1)
-texture = SubResource("AtlasTexture_5sxmq")
-region_rect = Rect2(0, 0, 5, 1)
-axis_stretch_horizontal = 1
-
 [node name="play" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.54
-anchor_top = 0.74763
+anchor_top = 0.809
 anchor_right = 0.54
-anchor_bottom = 0.74763
-offset_left = 75.28
-offset_top = -49.4401
-offset_right = 113.28
-offset_bottom = -0.440063
+anchor_bottom = 0.809
+offset_left = 75.28003
+offset_top = -48.751038
+offset_right = 113.28003
+offset_bottom = 0.24902344
 scale = Vector2(5, 5)
 pivot_offset = Vector2(19, 49)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xsu86")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7co2h")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_h63dm")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nna8n")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scmpu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tsyiy")
-theme_override_styles/hover = SubResource("StyleBoxTexture_tfoly")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_iug3v")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_wnu36")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qv5e7")
 theme_override_styles/normal = SubResource("StyleBoxTexture_tfoly")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qv5e7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wnu36")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_iug3v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tfoly")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tsyiy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scmpu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nna8n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h63dm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7co2h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xsu86")
 button_mask = 7
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_hbkx6")
 
 [node name="exit" type="Button" parent="."]
+visible = false
 clip_contents = true
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.46
-anchor_top = 0.74763
+anchor_top = 0.809
 anchor_right = 0.46
-anchor_bottom = 0.74763
-offset_left = -114.2
-offset_top = -49.4401
-offset_right = -76.2001
-offset_bottom = -0.440063
+anchor_bottom = 0.809
+offset_left = -114.20001
+offset_top = -48.751038
+offset_right = -76.200134
+offset_bottom = 0.24902344
 scale = Vector2(5, 5)
 pivot_offset = Vector2(19, 49)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xsu86")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7co2h")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_h63dm")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nna8n")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scmpu")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tsyiy")
-theme_override_styles/hover = SubResource("StyleBoxTexture_k8pc3")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_iug3v")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_wrswe")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qv5e7")
 theme_override_styles/normal = SubResource("StyleBoxTexture_k8pc3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qv5e7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wrswe")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_iug3v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k8pc3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tsyiy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_scmpu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nna8n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h63dm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7co2h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xsu86")
 button_mask = 7
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3_tn6hv")
 
 [node name="hi-score" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.031
 anchor_top = 0.5
-anchor_right = 0.254
-anchor_bottom = 0.538
+anchor_right = 0.031
+anchor_bottom = 0.5
 offset_left = -0.520004
 offset_top = 4.0
-offset_right = -198.68
-offset_bottom = -0.0400391
+offset_right = 134.03603
+offset_bottom = 31.84195
 text = "hi-score: 0"
 label_settings = SubResource("LabelSettings_hocse")
 script = ExtResource("5_xoj7i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 2
+texture = SubResource("AtlasTexture_5sxmq")
+region_rect = Rect2(0, 0, 5, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 13)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_tiuju")
+region_rect = Rect2(0, 0, 10, 13)
+axis_stretch_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 13)
+layout_mode = 2
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_4ytvr")
+stretch_mode = 2
+
+[node name="logo" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_gmtkt")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 13)
+layout_mode = 2
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_4ytvr")
+stretch_mode = 2
+flip_h = true
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 13)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_tiuju")
+region_rect = Rect2(0, 0, 10, 13)
+axis_stretch_vertical = 2
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+size_flags_vertical = 10
+texture = SubResource("AtlasTexture_5sxmq")
+region_rect = Rect2(0, 0, 5, 1)
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
