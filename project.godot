@@ -32,6 +32,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Tetris"
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 move-right={
