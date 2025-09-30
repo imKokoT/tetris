@@ -6,16 +6,16 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ujp6"]
 font = ExtResource("1_yo12k")
-font_size = 86
+font_size = 32
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_g2wsi"]
 font = ExtResource("1_yo12k")
+font_size = 8
 font_color = Color(0.75, 0.75, 0.75, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yslov"]
 font = ExtResource("1_yo12k")
-font_size = 24
 font_color = Color(1, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_io7lv"]
@@ -35,7 +35,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("gameover:text")
+tracks/1/path = NodePath("VBoxContainer/gameover:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -47,7 +47,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("info:label_settings:font_color")
+tracks/2/path = NodePath("VBoxContainer/info:label_settings:font_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -135,7 +135,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("info:label_settings:font_color")
+tracks/0/path = NodePath("VBoxContainer/info:label_settings:font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -163,7 +163,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("gameover:text")
+tracks/1/path = NodePath("VBoxContainer/gameover:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -175,7 +175,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("info:label_settings:font_color")
+tracks/2/path = NodePath("VBoxContainer/info:label_settings:font_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -307,31 +307,29 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.345098)
 
-[node name="gameover" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 11.5
+offset_top = -26.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="gameover" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "game over"
 label_settings = SubResource("LabelSettings_0ujp6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="info" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 44.0
-offset_bottom = 67.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="info" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "press 'r' to restart or 'esc' to exit"
 label_settings = SubResource("LabelSettings_g2wsi")
 horizontal_alignment = 1
@@ -339,19 +337,21 @@ vertical_alignment = 2
 
 [node name="high-score" type="Label" parent="."]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.445
-anchor_top = 0.589
-anchor_right = 0.555
-anchor_bottom = 0.611
-offset_left = 0.599976
-offset_top = -0.120056
-offset_right = -0.599976
-offset_bottom = 0.119995
+anchor_left = 0.74200004
+anchor_top = 0.384
+anchor_right = 0.74200004
+anchor_bottom = 0.384
+offset_left = -79.928024
+offset_top = -7.9440002
+offset_right = 80.07199
+offset_bottom = 8.056
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(105, 12)
+rotation = 0.3452003
+pivot_offset = Vector2(80, 8)
 text = "new high score!"
 label_settings = SubResource("LabelSettings_yslov")
 horizontal_alignment = 1
