@@ -3,7 +3,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
 
-     <!-- Enable trimming for release builds -->
+    <!-- Enable trimming for release builds -->
     <PublishTrimmed>true</PublishTrimmed>
     <!-- <TrimMode>link</TrimMode> -->
     <_EnableConsumingManagedCodeFromNativeHosting>true</_EnableConsumingManagedCodeFromNativeHosting>
