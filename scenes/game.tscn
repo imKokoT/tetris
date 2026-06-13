@@ -35,7 +35,7 @@ texture_region_size = Vector2i(8, 8)
 0:0/2 = 2
 0:0/2/modulate = Color(0, 1, 0, 1)
 0:0/3 = 3
-0:0/3/modulate = Color(0, 0, 1, 1)
+0:0/3/modulate = Color(0, 0.2666664, 1, 1)
 0:0/4 = 4
 0:0/4/modulate = Color(1, 1, 0, 1)
 0:0/5 = 5
@@ -43,7 +43,7 @@ texture_region_size = Vector2i(8, 8)
 0:0/6 = 6
 0:0/6/modulate = Color(0, 1, 1, 1)
 0:0/7 = 7
-0:0/7/modulate = Color(0.75046, 0.000433562, 0.750455, 1)
+0:0/7/modulate = Color(0.93, 0, 0.93, 1)
 
 [sub_resource type="TileSet" id="TileSet_tejjt"]
 tile_size = Vector2i(8, 8)
