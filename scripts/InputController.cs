@@ -68,22 +68,26 @@ public partial class InputController : Node
         if (Input.IsActionJustPressed("rot-right") && piece.CanRotTo(piece.Rotation + 1))
         {
             piece.Rotate(1);
+            _tetris.PredictHint();
             _tetris.UpdateTiles();
         }
         if (Input.IsActionJustPressed("rot-left") && piece.CanRotTo(piece.Rotation - 1))
         {
             piece.Rotate(-1);
+            _tetris.PredictHint();
             _tetris.UpdateTiles();
         }
 
         if (Input.IsActionJustPressed("move-right") && piece.CanMoveAt(Vector2I.Right))
         {
             piece.pos.X++;
+            _tetris.PredictHint();
             _tetris.UpdateTiles();
         }
         if (Input.IsActionJustPressed("move-left") && piece.CanMoveAt(Vector2I.Left))
         {
             piece.pos.X--;
+            _tetris.PredictHint();
             _tetris.UpdateTiles();
         }
 

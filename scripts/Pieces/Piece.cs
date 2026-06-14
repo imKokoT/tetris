@@ -10,13 +10,17 @@ namespace Pieces
         public readonly Block hintColor;
         public Vector2I pos = new(4, 0);
         
-        public Vector2I _hintPos = new(4, 0);
+        private Vector2I _hintPos = new(4, 0);
         public Vector2I HintPos
         {
             get
             {
                 _hintPos.X = pos.X;
                 return _hintPos;
+            }
+            set {
+                _hintPos = value;
+                _hintPos.X = pos.X;
             }
         }
 
@@ -97,6 +101,18 @@ namespace Pieces
                         return false;
             return true;
         }
+
+        public bool CanHintMoveAt(Vector2I pos)
+        {
+            Grid grid = GameData.Instance.Grid;
+
+            for (int x = 0; x < Blocks.GetLength(0); x++)
+                for (int y = 0; y < Blocks.GetLength(1); y++)
+                    if (Blocks[x,y] != Block.None && grid.GetWorldBlock(HintPos.X + pos.X + x, HintPos.Y + pos.Y + y) != Block.None)
+                        return false;
+            return true;
+        }
+
 
         public bool CanRotTo(int rotation)
         {

@@ -69,12 +69,28 @@ public partial class Tetris : Node
         GetNode("%GUI").AddChild(_gameOverGUI);
     }
 
+    public void PredictHint()
+    {
+        var piece = _gridData.Piece;
+        if (piece == null) return;
+
+        // reset hint pos
+        piece.HintPos = new(0, piece.pos.Y);
+
+        //predict hint position
+        while (piece.CanHintMoveAt(Vector2I.Down))
+            piece.HintPos = new(piece.HintPos.X, piece.HintPos.Y+1);
+
+    }
+
     private async Task _Update()
     {
         var piece = _gridData.Piece;
 
         if (piece != null)
         {
+            PredictHint();
+
             if (piece.CanMoveAt(Vector2I.Down))
             {
                 _player.Stream = _tickSound;
@@ -92,6 +108,7 @@ public partial class Tetris : Node
         {
             await Task.Delay(1000);
             _gridData.SpawnPiece();
+            PredictHint();
         }
 
         UpdateTiles();
