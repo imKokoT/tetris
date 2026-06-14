@@ -3,7 +3,7 @@ namespace Pieces
 {
     public class L : Piece
     {
-        public L(Block color = Block.Orange) : base(color) 
+        public L() : base(Block.Orange, Block.Hint) 
         {
             var c = color;
             pos = new(4, -1);

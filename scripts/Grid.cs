@@ -23,6 +23,8 @@ public class Grid
             return Block.Wall;
         if (_piece != null && _piece.HasBlockAtPos(x,y))
             return _piece.color;
+        if (_piece != null && _piece.HasHintBlockAtPos(x,y))
+            return _piece.hintColor;
         return world[x, y];
     }
 

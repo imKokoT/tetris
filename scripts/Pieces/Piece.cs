@@ -7,7 +7,18 @@ namespace Pieces
     public abstract class Piece
     {
         public readonly Block color;
+        public readonly Block hintColor;
         public Vector2I pos = new(4, 0);
+        
+        public Vector2I _hintPos = new(4, 0);
+        public Vector2I HintPos
+        {
+            get
+            {
+                _hintPos.X = pos.X;
+                return _hintPos;
+            }
+        }
 
         protected int _rotation = 0;
         /// <summary>
@@ -55,11 +66,26 @@ namespace Pieces
         public Block GetBlockFromPos(int x, int y) => 
             GetBlockFromPos(new Vector2I(x, y));
 
+        public Block GetHintBlockFromPos(Vector2I position)
+        {
+            var dpos = position - HintPos;
+            if (dpos.X < 0 || dpos.X >= Blocks.GetLength(0) || dpos.Y < 0 || dpos.Y >= Blocks.GetLength(1))
+                return Block.None;
+            return Blocks[dpos.X, dpos.Y];
+        }
+        public Block GetHintBlockFromPos(int x, int y) => 
+            GetHintBlockFromPos(new Vector2I(x, y));
+
         #region Conditions
         public bool HasBlockAtPos(Vector2I pos) => 
             GetBlockFromPos(pos) != Block.None;
         public bool HasBlockAtPos(int x, int y) =>
             GetBlockFromPos(x, y) != Block.None;
+
+        public bool HasHintBlockAtPos(Vector2I pos) => 
+            GetHintBlockFromPos(pos) != Block.None;
+        public bool HasHintBlockAtPos(int x, int y) =>
+            GetHintBlockFromPos(x, y) != Block.None;
 
         public bool CanMoveAt(Vector2I pos)
         {
@@ -74,6 +100,7 @@ namespace Pieces
 
         public bool CanRotTo(int rotation)
         {
+            // TODO: evil checks...
             Rotate(1);
             bool can = CanMoveAt(Vector2I.Zero);
             Rotate(-1);
@@ -86,9 +113,10 @@ namespace Pieces
         /// In constructor should be created figure blocks!
         /// </summary>
         /// <param name="color">figure color</param>
-        public Piece(Block color)
+        public Piece(Block color, Block hintColor)
         {
             this.color = color;
+            this.hintColor = hintColor;
         }
 
         public static Piece GenerateRandPiece()

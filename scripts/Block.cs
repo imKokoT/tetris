@@ -10,6 +10,7 @@ public enum Block
     Orange,
     Cyan,
     Purple,
+    Hint,
 }
 
 static class BlockEnumExtensions

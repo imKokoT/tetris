@@ -75,7 +75,6 @@ public partial class Tetris : Node
 
         if (piece != null)
         {
-
             if (piece.CanMoveAt(Vector2I.Down))
             {
                 _player.Stream = _tickSound;
