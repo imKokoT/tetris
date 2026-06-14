@@ -65,13 +65,13 @@ public partial class InputController : Node
         var piece = _gridData.Piece;
         if (piece == null) return;
 
-        if (Input.IsActionJustPressed("rot-right") && piece.CanRotTo(piece.Rotation + 1))
+        if (Input.IsActionJustPressed("rot-right") && piece.CanRotTo(1))
         {
             piece.Rotate(1);
             _tetris.PredictHint();
             _tetris.UpdateTiles();
         }
-        if (Input.IsActionJustPressed("rot-left") && piece.CanRotTo(piece.Rotation - 1))
+        if (Input.IsActionJustPressed("rot-left") && piece.CanRotTo(-1))
         {
             piece.Rotate(-1);
             _tetris.PredictHint();

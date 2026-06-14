@@ -114,12 +114,11 @@ namespace Pieces
         }
 
 
-        public bool CanRotTo(int rotation)
+        public bool CanRotTo(int direction)
         {
-            // TODO: evil checks...
-            Rotate(1);
+            Rotate(direction);
             bool can = CanMoveAt(Vector2I.Zero);
-            Rotate(-1);
+            Rotate(-direction);
             return can;
         }
 
