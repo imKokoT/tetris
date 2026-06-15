@@ -6,5 +6,6 @@
 /.vscode/
 /_saves/
 
+/_bin/
 /_templates/
-!/_templaytes/scons.txt
+!/_templates/scons.txt

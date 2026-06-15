@@ -1,0 +1,32 @@
+scons platform=linuxbsd target=template_release module_mono_enabled=yes optimize=size lto=full arch=x86_64 \
+          disable_3d=yes \
+          disable_navigation_3d=yes \
+          disable_physics_3d=yes \
+          disable_xr=yes \
+          forward_plus=no \
+          mobile=no \
+          vulkan=no \
+          d3d12=no \
+          metal=no \
+          rendering_device=no \
+          module_godot_physics_2d_enabled=no \
+          module_godot_physics_3d_enabled=no \
+          module_jolt_physics_enabled=no \
+          module_openxr_enabled=no
+
+scons platform=windows target=template_release module_mono_enabled=yes optimize=size production=yes arch=x86_64 \
+          disable_3d=yes \
+          disable_navigation_3d=yes \
+          disable_physics_3d=yes \
+          disable_xr=yes \
+          forward_plus=no \
+          mobile=no \
+          vulkan=no \
+          d3d12=no \
+          metal=no \
+          rendering_device=no \
+          module_godot_physics_2d_enabled=no \
+          module_godot_physics_3d_enabled=no \
+          module_jolt_physics_enabled=no \
+          module_openxr_enabled=no \
+          use_mingw=yes lto=none

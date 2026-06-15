@@ -1,11 +1,10 @@
 <Project Sdk="Godot.NET.Sdk/4.5.2">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <EnableDynamicLoading>true</EnableDynamicLoading>
 
     <!-- Enable trimming for release builds -->
     <PublishTrimmed>true</PublishTrimmed>
-    <!-- <TrimMode>link</TrimMode> -->
+    <EnableDynamicLoading>true</EnableDynamicLoading>
     <_EnableConsumingManagedCodeFromNativeHosting>true</_EnableConsumingManagedCodeFromNativeHosting>
   </PropertyGroup>
   <ItemGroup>
