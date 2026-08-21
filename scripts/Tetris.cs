@@ -47,6 +47,7 @@ public partial class Tetris : Node
 
         // main game
         GameData.Instance.State = GameState.Play;
+        GameLoopTimer.WaitTime = 0.01;
         GameLoopTimer.Start();
         while (GameData.Instance.State != GameState.GameOver)
             await _Update();
@@ -85,6 +86,8 @@ public partial class Tetris : Node
 
     private async Task _Update()
     {
+        await ToSignal(GameLoopTimer, "timeout");
+
         var piece = _gridData.Piece;
 
         if (piece != null)
@@ -109,11 +112,15 @@ public partial class Tetris : Node
             await Task.Delay(1000);
             _gridData.SpawnPiece();
             PredictHint();
+            
+            UpdateTiles();
+            GameLoopTimer.WaitTime = 1;
+            GameLoopTimer.Start();
+            return;
         }
 
         UpdateTiles();
 
-        await ToSignal(GameLoopTimer, "timeout");
         GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;
         GameLoopTimer.Start();
     }
