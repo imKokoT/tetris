@@ -96,7 +96,6 @@ public partial class Tetris : Node
         // spawn new peace
         if (piece == null)
         {
-            await Task.Delay(1000);
             _gridData.SpawnPiece();
             PredictHint();
             

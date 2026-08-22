@@ -97,7 +97,6 @@ public class Grid
                 else if (barrier && col[y] == Block.None)
                     world[_piece.pos.X + x, y] = Block.Gap;
             }
-
         }
 
         // --- count filed lines -----------------------------------------------
@@ -127,8 +126,8 @@ public class Grid
 
             gd.UpdateDelay *= gd.Level < 100 ? 1f - 0.05468f * (1f - gd.Level / 100f) : 1;
             gd.CurrentDelay = gd.UpdateDelay;
-            GD.Print($"Level {gd.Level}; Game speed changed to {gd.CurrentDelay:F3} sec/upd!");
             gd.Level++;
+            GD.Print($"Level {gd.Level+1}; Game speed changed to {gd.CurrentDelay:F3} sec/upd!");
         }
 
         _filledBefore = filled > 0;
