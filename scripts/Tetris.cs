@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 
 public partial class Tetris : Node
 {
+    [Export]public bool debug = false;
+
     public Timer GameLoopTimer { get; private set; } = new Timer();
 
     Grid _gridData;
@@ -131,7 +133,9 @@ public partial class Tetris : Node
             for (int y = 0; y < Grid.yMax; y++)
             {
                 var current = _gridData.GetBlock(x, y);
-                if (current != Block.None)
+                if (debug && current == Block.Gap)
+                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)Block.Hint);
+                else if (current != Block.None)
                     _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)current);
                 else
                     _tileGrid.SetCell(new Vector2I(x, y), -1);

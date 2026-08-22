@@ -1,6 +1,7 @@
 
 public enum Block
 {
+    Gap = -2, // non accessible air blocks
     Wall = -1,
     None,
     Red,
