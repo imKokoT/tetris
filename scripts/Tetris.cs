@@ -21,8 +21,9 @@ public partial class Tetris : Node
         _gridData = GameData.Instance.Grid;    
         _tileGrid = GetNode<TileMapLayer>("%grid");
         _onStartGUI = GetNode<Control>("%GUI/OnStart");
-        _player = new AudioStreamPlayer();
-        _player.VolumeDb = -2;
+        _player = new AudioStreamPlayer {
+            VolumeDb = -2
+        };
         AddChild(_player);
 
         // setup timer
@@ -90,24 +91,8 @@ public partial class Tetris : Node
 
         var piece = _gridData.Piece;
 
-        if (piece != null)
-        {
-            PredictHint();
-
-            if (piece.CanMoveAt(Vector2I.Down))
-            {
-                _player.Stream = _tickSound;
-                _player.Play();
-                piece.pos.Y++;
-            }
-            else
-            {
-                _gridData.PlacePiece();
-                _player.Stream = _placeSound;
-                _player.Play();
-            }
-        }
-        else
+        // spawn new peace
+        if (piece == null)
         {
             await Task.Delay(1000);
             _gridData.SpawnPiece();
@@ -119,6 +104,21 @@ public partial class Tetris : Node
             return;
         }
 
+        PredictHint();
+
+        if (piece.CanMoveAt(Vector2I.Down))
+        {
+            _player.Stream = _tickSound;
+            _player.Play();
+            piece.pos.Y++;
+            GameData.Instance.rotationBonusMultiplier = 0; // reset rotation bonus every tick
+        }
+        else
+        {
+            _gridData.PlacePiece();
+            _player.Stream = _placeSound;
+            _player.Play();
+        }
         UpdateTiles();
 
         GameLoopTimer.WaitTime = GameData.Instance.CurrentDelay;

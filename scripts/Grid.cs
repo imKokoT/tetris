@@ -1,5 +1,6 @@
 using Godot;
 using Pieces;
+using System;
 using System.Linq;
 
 
@@ -53,12 +54,32 @@ public class Grid
 
     public void PlacePiece()
     {
+        // count trick bonus
+        var bonus = 10;
+        var rotBonus = Math.Clamp(
+            Math.Abs(GameData.Instance.rotationBonusMultiplier),
+            -4, 4
+        );
+        if (_piece is O)
+            rotBonus = 0;
+
+        if (!_piece.CanMoveAt(Vector2I.Up))
+        {
+            bonus += 30 + (10 * (int)Mathf.Pow(2, rotBonus));
+            GD.Print($"bonus for trick: {bonus}");
+        }
+        else if (!_piece.CanMoveAt(Vector2I.Up * 2))
+        {
+            bonus += 20;
+            GD.Print($"little bonus for trick: {bonus}");
+        }
+        GameData.Instance.Score += bonus;
+
         // place piece
         for (int x = 0; x < _piece.Blocks.GetLength(0); x++)
             for (int y = 0; y < _piece.Blocks.GetLength(1); y++)
                 if (_piece.Blocks[x,y] != Block.None)
                     world[_piece.pos.X + x, _piece.pos.Y + y] = _piece.Blocks[x, y];
-        _piece = null;
 
         // count filed lines
         if (_filledBefore)
@@ -89,6 +110,7 @@ public class Grid
         }
 
         _filledBefore = filled > 0;
+        _piece = null;
     }
 
     #endregion

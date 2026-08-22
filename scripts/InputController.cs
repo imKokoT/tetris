@@ -70,12 +70,14 @@ public partial class InputController : Node
             piece.Rotate(1);
             _tetris.PredictHint();
             _tetris.UpdateTiles();
+            GameData.Instance.rotationBonusMultiplier += 1;
         }
         if (Input.IsActionJustPressed("rot-left") && piece.CanRotTo(-1))
         {
             piece.Rotate(-1);
             _tetris.PredictHint();
             _tetris.UpdateTiles();
+            GameData.Instance.rotationBonusMultiplier -= 1;
         }
 
         if (Input.IsActionJustPressed("move-right") && piece.CanMoveAt(Vector2I.Right))
