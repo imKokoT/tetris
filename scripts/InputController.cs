@@ -1,6 +1,4 @@
 using Godot;
-using Pieces;
-using System.Threading.Tasks;
 
 
 public partial class InputController : Node
@@ -47,6 +45,7 @@ public partial class InputController : Node
             Input.MouseMode = Input.MouseModeEnum.Captured;
             GameData.Instance.State = GameState.Play;
             _pauseGUI.Visible = false;
+            _tetris.tileGrid.Modulate = new Color(_tetris.tileGrid.Modulate, 1);
             GetTree().Paused = false;
         }
         else if (Input.IsActionJustPressed("pause") && GameData.Instance.State == GameState.Play)
@@ -54,6 +53,7 @@ public partial class InputController : Node
             Input.MouseMode = Input.MouseModeEnum.Visible;
             GameData.Instance.State = GameState.Pause;
             _pauseGUI.Visible = true;
+            _tetris.tileGrid.Modulate = new Color(_tetris.tileGrid.Modulate, 0);
             GetTree().Paused = true;
         }
     }

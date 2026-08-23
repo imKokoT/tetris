@@ -7,9 +7,9 @@ public partial class Tetris : Node
     [Export]public bool debug = false;
 
     public Timer GameLoopTimer { get; private set; } = new Timer();
+    public TileMapLayer tileGrid;
 
     Grid _gridData;
-    TileMapLayer _tileGrid;
     AudioStreamPlayer _player;
 
     Control _gameOverGUI = GD.Load<PackedScene>("res://scenes/gameover.tscn").Instantiate<Control>();
@@ -21,7 +21,7 @@ public partial class Tetris : Node
     public override async void _Ready()
     {
         _gridData = GameData.Instance.Grid;    
-        _tileGrid = GetNode<TileMapLayer>("%grid");
+        tileGrid = GetNode<TileMapLayer>("%grid");
         _onStartGUI = GetNode<Control>("%GUI/OnStart");
         _player = new AudioStreamPlayer {
             VolumeDb = -2
@@ -133,11 +133,11 @@ public partial class Tetris : Node
             {
                 var current = _gridData.GetBlock(x, y);
                 if (debug && current == Block.Gap)
-                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)Block.Hint);
+                    tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)Block.Hint);
                 else if (current != Block.None)
-                    _tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)current);
+                    tileGrid.SetCell(new Vector2I(x, y), 0, Vector2I.Zero, (int)current);
                 else
-                    _tileGrid.SetCell(new Vector2I(x, y), -1);
+                    tileGrid.SetCell(new Vector2I(x, y), -1);
             }
     }
 }
