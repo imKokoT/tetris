@@ -117,6 +117,25 @@ public class Grid
         GameData.Instance.Score += filled > 0 ? 100 * (int)Mathf.Pow(2, filled) * _fillMultiplier : 0;
 
         // --- count bonus for opened holes ----------------------------------------
+        int gaps = 0;
+        for (int x = 0; x < xMax; x++)
+        {
+            var col = world.GetCol(x);
+            for (int y = 0; y < yMax; y++)
+            {
+                if (world[x,y] == Block.Gap) {
+                    gaps++;
+                    world[x,y] = Block.None;
+                }
+                else if (world[x,y] != Block.None) 
+                    break;
+            }
+        }
+        if (gaps != 0)
+        {
+            GameData.Instance.Score += 20 * gaps;
+            GD.Print($"bonus for opened gaps: {20 * gaps}");
+        }
 
 
         // --- apply game speed ----------------------------------------------------
