@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://bxuwkygnayeb6"]
+[gd_scene load_steps=24 format=3 uid="uid://bxuwkygnayeb6"]
 
 [ext_resource type="Texture2D" uid="uid://b77nkvuahs3tf" path="res://textures/main.png" id="1_n1l1a"]
 [ext_resource type="FontFile" uid="uid://84cvv2fk2612" path="res://fonts/small_pixel.ttf" id="2_4ytvr"]
 [ext_resource type="Script" uid="uid://brbpujidiptnk" path="res://scripts/buttons/menu/Play.cs" id="2_hbkx6"]
 [ext_resource type="Script" uid="uid://bllq3i52wxpkc" path="res://scripts/buttons/menu/Exit.cs" id="3_tn6hv"]
 [ext_resource type="Script" uid="uid://pti44br72xxi" path="res://scripts/labels/HighScoreDisplay.cs" id="5_xoj7i"]
+[ext_resource type="Script" uid="uid://c5hqk3nf6583l" path="res://scenes/Version.cs" id="6_g3eks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5sxmq"]
 atlas = ExtResource("1_n1l1a")
@@ -204,3 +205,24 @@ texture = SubResource("AtlasTexture_5sxmq")
 region_rect = Rect2(0, 0, 5, 11)
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[node name="version" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.14901961, 0.7607843, 0.05882353, 1)
+theme_override_fonts/font = ExtResource("2_4ytvr")
+theme_override_font_sizes/font_size = 8
+text = "version"
+horizontal_alignment = 2
+script = ExtResource("6_g3eks")
