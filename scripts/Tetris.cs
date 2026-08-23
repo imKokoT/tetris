@@ -61,13 +61,32 @@ public partial class Tetris : Node
 
     private void OnGameOver()
     {
+        var resultText = $"- score: {GameData.Instance.Score}\n" +
+                         $"- level: {GameData.Instance.Level}\n" +
+                         $"- tricks: {GameData.Instance.Tricks}\n" +
+                         $"- opened gaps: {GameData.Instance.OpenedGaps}\n" +
+                         $"- lines filled: {GameData.Instance.LinesFilled}\n";
+        _gameOverGUI.GetNode<Label>("stats").Text =resultText;
+        GD.Print(resultText);
+
         if (GameData.Instance.Score > GameData.Instance.HighScore)
         {
             GD.Print($"new high score {GameData.Instance.Score}!");
-            GameData.Instance.HighScore = GameData.Instance.Score;
-            GameData.Instance.SaveData();
             _gameOverGUI.GetNode<Label>("high-score").Visible = true;
         }
+
+        GameData.Instance.HighScore = GameData.Instance.Score > GameData.Instance.HighScore ? 
+            GameData.Instance.Score : GameData.Instance.HighScore;
+        GameData.Instance.HighLevel = GameData.Instance.Level > GameData.Instance.HighLevel ? 
+            GameData.Instance.Level : GameData.Instance.HighLevel;
+        GameData.Instance.HighTricks = GameData.Instance.Tricks > GameData.Instance.HighTricks ? 
+            GameData.Instance.Tricks : GameData.Instance.HighTricks;
+        GameData.Instance.HighOpenedGaps = GameData.Instance.OpenedGaps > GameData.Instance.HighOpenedGaps ? 
+            GameData.Instance.OpenedGaps : GameData.Instance.HighOpenedGaps;
+        GameData.Instance.HighLinesFilled = GameData.Instance.LinesFilled > GameData.Instance.HighLinesFilled ? 
+            GameData.Instance.LinesFilled : GameData.Instance.HighLinesFilled;
+        GameData.Instance.SaveData();
+        
 
         GameLoopTimer.Stop();
         GetNode("%GUI").AddChild(_gameOverGUI);

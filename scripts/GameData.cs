@@ -8,15 +8,22 @@ public class GameData
     public static void Recreate() => Instance = new GameData();
 
     public GameState State { get; set; }
-    public int Score { get; set; }
-    public int HighScore { get; set; }
-    public int Level { get; set; }
     public int rotationBonusMultiplier { get; set; }
     public Grid Grid { get; set; } = new Grid();
 
     public float CurrentDelay = DEFAULT_DELAY;
     public float UpdateDelay = DEFAULT_DELAY;
 
+    public int Score { get; set; }
+    public int HighScore { get; set; }
+    public int Level { get; set; }
+    public int HighLevel { get; set; }
+    public int Tricks { get; set; }
+    public int HighTricks { get; set; }
+    public int OpenedGaps { get; set; }
+    public int HighOpenedGaps { get; set; }
+    public int LinesFilled { get; set; }
+    public int HighLinesFilled { get; set; }
 
     public GameData()
     {
@@ -27,12 +34,16 @@ public class GameData
     {
         var config = new ConfigFile();
 
-        config.SetValue("", "high_score", HighScore);
+        config.SetValue("stat", "high_score", HighScore);
+        config.SetValue("stat", "high_level", HighLevel);
+        config.SetValue("stat", "high_tricks", HighTricks);
+        config.SetValue("stat", "high_opened_gaps", HighOpenedGaps);
+        config.SetValue("stat", "high_lines_filed", HighLinesFilled);
 
         if (OS.IsDebugBuild() && !OS.HasFeature("template"))
             config.Save("res://_saves//data.cfg");
         else
-            config.Save("user://data.cfg");
+            config.SaveEncryptedPass("user://data.cfg", "92xA[s*Qt-A_BH&WtaX@");
 
         GD.Print("saved data.cfg");
     }
@@ -45,7 +56,7 @@ public class GameData
         if (OS.IsDebugBuild() && !OS.HasFeature("template"))
             err = config.Load("res://_saves//data.cfg");
         else
-            err = config.Load("user://data.cfg");
+            err = config.LoadEncryptedPass("user://data.cfg", "92xA[s*Qt-A_BH&WtaX@");
 
         if (err != Error.Ok)
         {
@@ -53,7 +64,11 @@ public class GameData
             return;
         }
 
-        HighScore = (int)config.GetValue("", "high_score");
+        HighScore = (int)config.GetValue("stat", "high_score", 0);
+        HighLevel = (int)config.GetValue("stat", "high_level", 0);
+        HighTricks = (int)config.GetValue("stat", "high_tricks", 0);
+        HighOpenedGaps = (int)config.GetValue("stat", "high_opened_gaps", 0);
+        HighLinesFilled = (int)config.GetValue("stat", "high_lines_filed", 0);
 
         GD.Print("loaded data.cfg");
     }

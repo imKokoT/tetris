@@ -69,11 +69,13 @@ public class Grid
         {
             bonus += 30 + (10 * (int)Mathf.Pow(2, rotBonus));
             GD.Print($"bonus for trick: {bonus}");
+            GameData.Instance.Tricks++;
         }
         else if (!_piece.CanMoveAt(Vector2I.Up * 2))
         {
             bonus += 20;
             GD.Print($"little bonus for trick: {bonus}");
+            GameData.Instance.Tricks++;
         }
         GameData.Instance.Score += bonus;
 
@@ -115,6 +117,7 @@ public class Grid
                 world.SetRow(world.GetRow(dy - 1), dy);
         }
         GameData.Instance.Score += filled > 0 ? 100 * (int)Mathf.Pow(2, filled) * _fillMultiplier : 0;
+        GameData.Instance.LinesFilled += filled;
 
         // --- count bonus for opened holes ----------------------------------------
         int gaps = 0;
@@ -134,6 +137,7 @@ public class Grid
         if (gaps != 0)
         {
             GameData.Instance.Score += 20 * gaps;
+            GameData.Instance.OpenedGaps += gaps;
             GD.Print($"bonus for opened gaps: {20 * gaps}");
         }
 
