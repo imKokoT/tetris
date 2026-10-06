@@ -1,7 +1,7 @@
 
 # Tetris <img src="./textures/icon.png" width="48" height="48" alt="Tetris icon" style="vertical-align: middle;">
 
-Just a minimalistic Tetris game. Also my course work (*v1.0.3a*).
+Just a minimalistic Tetris game. Also my course work.
 
 ![Gameplay](./docs/imgs/gameplay.png)
 
